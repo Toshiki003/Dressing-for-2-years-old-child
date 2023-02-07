@@ -2,13 +2,13 @@ D2C - Dressing for 2 years old children -
 
 ２歳児の身支度を楽しくするアプリ
 
-![facebook_cover_photo_1.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7fa2b917-8289-4206-8917-779d5105fb59/facebook_cover_photo_1.png)
+![facebook_cover_photo_1](https://user-images.githubusercontent.com/110599239/217250510-5211e194-0d20-49eb-b4f0-388f30478c23.png)
 
-## ■サービス概要3行
+## ■サービス概要
 
 - イヤイヤ期（2歳頃)に入った子どもが、
 - 毎日楽しく身支度ができるように、
-- 我が家の工夫を投稿し共有できるサービスです
+- 「うちの工夫」を投稿し共有できるサービスです
 
 ## ■メインのターゲットユーザー
 
@@ -21,19 +21,15 @@ D2C - Dressing for 2 years old children -
 - 「最近毎回お風呂に嫌がって時間がかかる。何か機嫌よくお風呂に入れるようにできないかな。」など感じている
 - 「今日はどうしても嫌がって磨かない。1日ぐらい歯磨きしなくても大丈夫」とスキップすると翌日「昨日は仕上げ磨きしなかったもん！」と違う理由で嫌がる…など、歯磨きの悩みを抱えている
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e5ca1b4b-4258-4f2b-8ecb-e8f656fb2a46/Untitled.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6373c3f0-e66c-4834-ab6b-8f8996e68e89/Untitled.png)
+YouTubeの検索キーワードでも、「お風呂　子供　入らない」や「歯磨きの歌」など多くの候補がヒットする。このことから、子どもに楽しくお風呂や歯磨きをしてもらいたいニーズは十分あると考えた。(下記画像)
 
-お風呂、歯磨きを嫌がる子どものイメージ
 
-*フリー画像からです
 
-YouTubeの検索キーワードでも、「お風呂　子供　入らない」や「歯磨きの歌」など多くの候補がヒットする。このことから、子どもに楽しくお風呂や歯磨きをしてもらいたいニーズは十分あると考えた。
+![IMG_8480](https://user-images.githubusercontent.com/110599239/217250982-766b2c4b-ad23-461c-9bc9-737997a23f86.jpg)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/77e52633-4c02-43bc-be7a-86837a086302/Untitled.png)
+![IMG_8482](https://user-images.githubusercontent.com/110599239/217251046-d4800a8c-69c9-4025-9fd4-3cc5851dd4ef.jpg)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/37343fd6-5ff7-4eb8-806c-9961a99d92d6/Untitled.png)
 
 ## ■解決方法
 
