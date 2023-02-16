@@ -95,3 +95,6 @@ README〜ER図作成2/10~2/15
 RUNTEQ内リリース(MVPリリース)2/28
 
 本リリース3/15
+
+画面遷移図
+https://www.figma.com/file/IBdaAKD9D7yxnPeMJ9WXBY/D2C?node-id=0%3A1&t=hvS7VjRvxNzd9GuY-1
