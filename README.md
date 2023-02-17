@@ -98,3 +98,6 @@ RUNTEQ内リリース(MVPリリース)2/28
 
 画面遷移図
 https://www.figma.com/file/IBdaAKD9D7yxnPeMJ9WXBY/D2C?node-id=0%3A1&t=hvS7VjRvxNzd9GuY-1
+
+ER図
+https://app.diagrams.net/#HToshiki003%2FDressing-for-2-years-old-child%2Fmain%2F%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB.drawio
