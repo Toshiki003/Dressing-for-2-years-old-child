@@ -38,5 +38,9 @@ module DressingFor2YearsOldChild
       g.helper false  # helperを自動生成しない
       g.skip_routes true # routesを自動生成しない
     end
+
+    # デフォルトの言語を日本語に設定
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
   end
 end
