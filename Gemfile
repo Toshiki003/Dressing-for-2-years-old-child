@@ -55,6 +55,8 @@ gem 'enum_help'
 # Schema Information
 gem 'annotate'
 
+# 環境変数管理
+gem 'dotenv-rails'
 
 
 group :development, :test do
