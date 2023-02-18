@@ -84,3 +84,5 @@ group :development do
   gem 'rubocop-rails', require: false
 end
 
+
+gem "cssbundling-rails", "~> 1.1"
