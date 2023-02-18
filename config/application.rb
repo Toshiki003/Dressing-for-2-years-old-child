@@ -42,5 +42,9 @@ module DressingFor2YearsOldChild
     # デフォルトの言語を日本語に設定
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+    # デフォルトのタイムゾーンを日本に設定
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
   end
 end
