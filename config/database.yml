@@ -50,6 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: Dressing_for_2_years_old_child_production
-  username: Dressing_for_2_years_old_child
+  database: clealsq1d001magpd4h80h64w
+  username: clealsq1c001kagpd1ble39cj
   password: <%= ENV["DRESSING_FOR_2_YEARS_OLD_CHILD_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
