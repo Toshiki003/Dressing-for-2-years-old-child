@@ -61,4 +61,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
+  # ログインマクロの適用のために以下を記述
+  config.include LoginMacros
 end
