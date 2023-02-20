@@ -58,6 +58,9 @@ gem 'annotate'
 # 環境変数管理
 gem 'dotenv-rails'
 
+# Password Authentication
+gem 'sorcery'
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
