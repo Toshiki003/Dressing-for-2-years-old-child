@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :system do
+RSpec.describe 'Users', type: :system do
   describe 'ユーザーの新規作成' do
     # 異常系：メールアドレスが重複する場合のためにletで定義しておく
     let(:existed_user) { create(:user) }
@@ -44,7 +44,6 @@ RSpec.describe "Users", type: :system do
         # エラーメッセージ実装後コメントアウトを外す↓
         # expect(page).to have_content('メールアドレスはすでに存在します')
       end
-
     end
   end
 end
