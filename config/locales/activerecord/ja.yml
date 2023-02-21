@@ -1,0 +1,28 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      
+    attributes: 
+      user:
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+        name: '名前'
+        avatar: 'アバター'    
+        role: '権限'
+        created_at: '作成日時'
+      # post作成後に対応させる
+      # board:
+      #   title: 'タイトル'
+      #   body: '本文'
+      #   board_image: 'サムネイル'
+      #   full_name: '作成者'
+      #   created_at: '作成日時'
+      # comment:
+      #   body: 'コメント'
+  # enums:
+  #   user:
+  #     role: 
+  #         general: '一般'
+  #         admin: '管理者'
