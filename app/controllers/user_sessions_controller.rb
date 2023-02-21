@@ -8,7 +8,7 @@ class UserSessionsController < ApplicationController
 
     if @user
 
-      redirect_back_or_to root_path, success: t('.success')
+      redirect_back_or_to posts_path, success: t('.success')
     else
       flash.now[:danger] = t('.fail')
       render :new, status: :unprocessable_entity
@@ -17,6 +17,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to root_path, success: 'ログアウトしました', status: :see_other
+    redirect_to root_path, success: t('.success'), status: :see_other
   end
 end

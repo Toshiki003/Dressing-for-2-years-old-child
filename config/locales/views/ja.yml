@@ -38,19 +38,19 @@ ja:
       fail: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
-  # boards:
-  #   index:
-  #     title: '掲示板一覧'
-  #     no_result: '掲示板がありません。'
-  #   new:
-  #     title: '掲示板作成'
-  #   show:
-  #     title: '掲示板詳細'
-  #   edit:
-  #     title: '掲示板編集'
+  posts:
+    index:
+      title: '投稿一覧'
+      no_result: '投稿がありません。'
+    new:
+      title: '投稿作成'
+    show:
+      title: '投稿詳細'
+    edit:
+      title: '投稿編集'
   #   bookmarks:
   #     title: 'ブックマーク一覧'
-  #     no_result: 'ブックマーク中の掲示板がありません'
+  #     no_result: 'ブックマーク中の投稿がありません'
   # bookmarks:
   #   create:
   #     success: 'ブックマークしました'
@@ -94,8 +94,8 @@ ja:
   #       title: 'ユーザー編集'
   #   boards:
   #     index:
-  #       title: '掲示板一覧'
+  #       title: '投稿一覧'
   #     show:
-  #       title: '掲示板詳細'
+  #       title: '投稿詳細'
   #     edit:
-  #       title: '掲示板編集'
+  #       title: '投稿編集'
