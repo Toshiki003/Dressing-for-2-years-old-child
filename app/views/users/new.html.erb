@@ -19,7 +19,7 @@
           <%= form.label :password_confirmation %>
           <%= form.password_field :password_confirmation, class: "form-control" %>
         </div>
-        <%= form.submit "登録する", class:'btn btn-primary' %>
+        <%= form.submit ( t 'defaults.register'), class:'btn btn-primary' %>
       <% end %>
       <div class='text-center'>
         <%= link_to "topページ", root_path %>
