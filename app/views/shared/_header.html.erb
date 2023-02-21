@@ -1,3 +1,3 @@
 <p>ここはログインした後のヘッダーです</p>
 <%= link_to 'top', root_path %>
-<%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete } %>
+<%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete } %>
