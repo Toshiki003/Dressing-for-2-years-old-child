@@ -1,2 +1,9 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1><%= t('.title') %></h1>
+
+<%= @post.title %>
+<%= @post.user.name %>
+<%= l @post.created_at, format: :long %>
+<%= simple_format(@post.content) %>
+
+<!-- ↓編集、削除ボタンはcrud_menuパーシャルにすること。また、fontawesomeを使うこと。current_userでなければbookmark_buttonにすること。-->
+<%= render 'crud_menus', post: @post if current_user.own?(@post) %>
