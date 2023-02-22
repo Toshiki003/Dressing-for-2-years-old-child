@@ -1,4 +1,8 @@
-<%= post.title %>
+<%= link_to post.title, post_path(post) %>
 <%= post.user.name %>
 <%= l post.created_at, format: :long %>
 <%= post.content %>
+<% if current_user.own?(post) %>
+  <%= render 'crud_menus', post: post %>
+<% end %>
+<br>
