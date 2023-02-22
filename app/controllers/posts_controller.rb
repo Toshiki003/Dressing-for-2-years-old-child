@@ -23,8 +23,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @post.update(post_params)
@@ -40,8 +39,8 @@ class PostsController < ApplicationController
     redirect_to posts_path, success: t('defaults.message.deleted', item: Post.model_name.human)
   end
 
-
   private
+
   def post_params
     params.require(:post).permit(:title, :content, :embed_youtube)
   end
