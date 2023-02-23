@@ -10,7 +10,17 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
 
-  enum avator: { fox: 0, dog: 1, cat: 2 } 
+  enum avatar: {
+    fox: 0, 
+    dog: 1, 
+    cat: 2,
+    lion: 3,
+    hourse: 4,
+    panda: 5,
+    bee: 6,
+    whitetiger: 7,
+    stegosaurus: 8
+  } 
 
   def own?(object)
     id == object.user_id
