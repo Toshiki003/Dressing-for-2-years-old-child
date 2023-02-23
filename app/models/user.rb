@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
 
+  enum avator: { fox: 0, dog: 1, cat: 2 } 
+
   def own?(object)
     id == object.user_id
   end
