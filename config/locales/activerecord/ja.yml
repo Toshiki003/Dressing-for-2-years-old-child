@@ -3,6 +3,7 @@ ja:
     models:
       user: 'ユーザー'
       post: '投稿'
+      category: 'カテゴリ'
       
     attributes: 
       user:
@@ -20,6 +21,8 @@ ja:
         created_at: '作成日時'
       # comment:
       #   body: 'コメント'
+      category:
+        name: 'カテゴリ名'
   enums:
     user:
       avatar:
@@ -35,3 +38,7 @@ ja:
       role: 
           general: '一般'
           admin: '管理者'
+    category:
+      name:
+        bath: 'お風呂'
+        dentifrice: '歯磨き'
