@@ -5,6 +5,10 @@
 <% if post.embed_youtube? %>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= "#{post.split_id_from_youtube_url}" %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <% end %>
+<% if post.category_id? %>
+  <%= post.category.name %>
+<% end %>  
+
 <% if current_user.own?(post) %>
   <%= render 'crud_menus', post: post %>
 <% end %>
