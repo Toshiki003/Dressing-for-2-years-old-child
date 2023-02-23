@@ -3,3 +3,4 @@
 <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete } %>
 <%= link_to t('posts.new.title'), new_post_path %>
 <%= link_to t('posts.index.title'), posts_path %>
+<%= image_tag "#{current_user.avatar}.png",class: "rounded-circle mr15", size: '60' %>

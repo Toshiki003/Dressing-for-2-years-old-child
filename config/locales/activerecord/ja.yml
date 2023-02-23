@@ -10,7 +10,7 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         name: '名前'
-        avatar: 'アバター'    
+        avatar: 'アバター'   
         role: '権限'
         created_at: '作成日時'
       post:
@@ -20,8 +20,18 @@ ja:
         created_at: '作成日時'
       # comment:
       #   body: 'コメント'
-  # enums:
-  #   user:
-  #     role: 
-  #         general: '一般'
-  #         admin: '管理者'
+  enums:
+    user:
+      avatar:
+        fox: 'きつね'
+        dog: 'いぬ'
+        cat: 'ねこ'
+        lion: 'ライオン'
+        hourse: 'うま'
+        panda: 'パンダ'
+        bee: 'はち'
+        whitetiger: 'ホワイトタイガー'
+        stegosaurus: 'ステゴザウルス'
+      role: 
+          general: '一般'
+          admin: '管理者'
