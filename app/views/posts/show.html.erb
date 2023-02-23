@@ -10,5 +10,3 @@
 
 <!-- ↓編集、削除ボタンはcrud_menuパーシャルにすること。また、fontawesomeを使うこと。current_userでなければbookmark_buttonにすること。-->
 <%= render 'crud_menus', post: @post if current_user.own?(@post) %>
-
-<%= image_tag "#{current_user.avator}.png" %>
