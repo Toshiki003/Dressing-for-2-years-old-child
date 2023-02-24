@@ -7,6 +7,6 @@
 <% if @post.embed_youtube? %>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= "#{@post.split_id_from_youtube_url}" %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <% end %>
-
+<%= render @post.tags %>
 <!-- ↓編集、削除ボタンはcrud_menuパーシャルにすること。また、fontawesomeを使うこと。current_userでなければbookmark_buttonにすること。-->
 <%= render 'crud_menus', post: @post if current_user.own?(@post) %>
