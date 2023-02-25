@@ -1,6 +1,83 @@
-<p>ここはログインした後のヘッダーです</p>
-<%= link_to 'top', root_path %>
-<%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete } %>
-<%= link_to t('posts.new.title'), new_post_path %>
-<%= link_to t('posts.index.title'), posts_path %>
-<%= image_tag "#{current_user.avatar}.png",class: "rounded-circle mr15", size: '60' %>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-default" style="background-color: #c8e7ed;">
+    <div class="container-fluid">
+      <%= link_to root_path, class:'navbar-brand' do %>
+        <%= image_tag 'D2C_logo.png' %>
+      <% end %>
+      
+
+      <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent'
+        aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+        <span class='navbar-toggler-icon'></span>
+      </button>
+
+      
+        <!-- 検索フォーム　後でrenderで書き換える-->
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success btn-sm" type="submit">Search</button>
+        </form>
+      
+
+      <!-- 画面幅が小さくなった時に、collapseに入る要素。liで並列になっている-->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center"> <!-- ここが基礎編とは違う-->
+          <li class="nav-item">
+            <%= link_to t('posts.new.title'), new_post_path, class: 'btn btn-info btn-sm me-2' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t('posts.index.title'), posts_path, class: 'btn btn-info btn-sm me-2' %>
+          </li>
+          <li class="nav-item">
+              <%= link_to 'ブックマーク', '#', class: 'btn btn-info btn-sm me-2' %>
+          </li>
+
+          <li class="nav-item dropdown ms-2 d-inline-block">
+            <a class="rounded-circle" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+              <div class="avatar avatar-md">
+                <%= image_tag current_user.avatar, class: 'rounded-circle avatar-sm', size: '60' %>
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end">
+              <div class="dropdown-item">
+                <div class="d-flex">
+                  <div class="avatar avatar-md">
+                    <%= image_tag current_user.avatar, class: 'rounded-circle avatar-sm', size: '60' %>
+                  </div>
+                  <div class="ms-3 lh-1">
+                    <h5 class="mb-1"><%= current_user.name %></h5>
+                    <p class="mb-0 text-muted"><%= current_user.email %></p>
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown-divider"></div>
+              <ul class="list-unstyled">
+              <!-- 「自分の投稿一覧」に変更予定 -->
+                <li>
+                  <%= link_to '#', class: 'dropdown-item' do %>
+                    <i class="bi bi-calendar-check me-2"></i>マイページ
+                  <% end %>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/mypage/profile">
+                    <i class="bi bi-person me-2"></i>プロフィール
+                  </a>
+                </li>
+              </ul>
+              <div class="dropdown-divider"></div>
+              <ul class="list-unstyled">
+                <li>
+                  <%= link_to logout_path, data: { turbo_method: :delete }, class: 'dropdown-item' do%>
+                    <i class="bi bi-box-arrow-left me-2"></i><%= (t 'defaults.logout') %>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

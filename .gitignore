@@ -37,4 +37,4 @@
 # dotenv-railsの環境変数管理で追記
 /.env
 # 動物アイコン
-/images
+app/assets/images
