@@ -1,11 +1,15 @@
 <nav class="container" style="background-color: #F7F8F9;">
   <div class="container-fluid">
-
-    <h1>Posts#index</h1>
-    <% if @posts.present? %>
-      <%= render @posts %>
-    <% else %>
-      <p><%= t('.no_result') %></p>
-    <% end %> 
-  </div> 
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <% if @posts.present? %>
+            <%= render @posts %>
+          <% else %>
+            <p><%= t('.no_result') %></p>
+          <% end %> 
+        </div> 
+      </div>
+    </div>
+  </div>
 </nav>
