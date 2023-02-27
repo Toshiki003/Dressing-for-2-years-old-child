@@ -1,3 +1,32 @@
 @import 'top';
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+
+.category-1{
+    /*コレ*/box-shadow: 0 5px #0023b7;
+    /*コレ*/border-radius: 5px;
+    display: block;
+    width: 200px;
+    padding: 15px;
+    box-sizing: border-box;
+    background: #6fa1ff;
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px 0;
+}
+.tag-1{
+  /*コレ*/box-shadow: 0 3px #0023b7;
+  /*コレ*/border-radius: 100px;
+  display: block;
+  width: 100px;
+  padding: 5px;
+  box-sizing: border-box;
+  background: #6fa1ff;
+  color: #FFF;
+  text-decoration: none;
+  text-align: center;
+  margin: 10px 0;
+  float: left;
+}

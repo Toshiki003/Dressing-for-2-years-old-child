@@ -1,9 +1,12 @@
   <div class="col-sm-12 col-lg-4 mb-3">
       <div id="post-id-<%= post.id %>">
         <div class="card shadow" style="background-color: #ffffc2;">
+          <h4 class="card-header" style="background-color: #ffffc2;">
+              <%= link_to post.title, post_path(post) %>
+            </h4>
           <!-- このしたのif文は後で削除する-->
           <% if post.category %>
-            <%= post.category.name %>
+            <div class="category-1"><%= post.category.name %></div>
           <% end %>
           <%= l post.created_at, format: :short %>
           <% if post.embed_youtube? %>
@@ -14,24 +17,25 @@
             <% end %>
           <% end %>
           <div class="card-body">
-            <h4 class="card-title">
-              <%= link_to post.title, post_path(post) %>
-            </h4>
-            <p class="card-text"><%= post.content %></p>
-            <!-- ↓ここにcurrent_userで分岐を作り、ボタンを配置-->
-            <% if current_user.own?(post) %>
-              <%= render 'crud_menus', post: post %>
-            <% else %>
-              <%= render 'bookmark_button', post: post %>
-            <% end %>
+            
+            <h5 class="card-text"><%= post.content %></h5>
+
             <ul class="list-inline">
               <li class="list-inline-item">
                 <%= image_tag "#{post.user.avatar}.png", size: '80x80' %>
-                <%= post.user.name %>
+                <h5><%= post.user.name %></h5>
               </li>
-              <div>
-                <%= render post.tags %>
-              </div>
+              <li class="list-inline-item">
+                <% if current_user.own?(post) %>
+                  <%= render 'crud_menus', post: post %>
+                <% else %>
+                  <%= render 'bookmark_button', post: post %>
+                <% end %>
+              </li>
+            </ul>
+            <div>
+              <%= render post.tags %>
+            </div>
           </div>
         </div>
       </div>
