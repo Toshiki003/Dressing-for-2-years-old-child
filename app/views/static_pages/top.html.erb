@@ -6,7 +6,7 @@
       <%= image_tag 'top_background.png', class: 'img-fruid', width: '100%', height: '50%'%>
 
       <%= link_to "始めてみる", new_user_path, class:"btn btn-primary" %>
-      <%= link_to "ゲストログイン", new_user_path, class:"btn btn-info" %>
+      <%= link_to "ゲストログイン", guest_login_path, data: { turbo_method: :post }, class:"btn btn-info" %>
 
     </div>
   </div>

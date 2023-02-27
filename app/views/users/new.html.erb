@@ -24,14 +24,16 @@
           <%= f.label :avatar %>
           <%= f.select :avatar,User.avatars_i18n.invert, {}, class: "form-control" %>
         </div>
-        <%= f.submit ( t 'defaults.register'), class:'btn btn-primary' %>
+        <div class="form-group">
+          <%= f.submit ( t 'defaults.register'), class:'btn btn-primary' %>
+        </div>
       <% end %>
 
       <% User.avatars.keys.each do |avatar| %>
-        <%= image_tag "#{avatar}.png",class: "rounded-circle mr15", size: '60' %>
+        <%= image_tag "#{avatar}.png",class: "rounded-circle mr15", size: '90' %>
       <% end %>
       <div class='text-center'>
-        <%= link_to "topページ", root_path %>
+        <%= link_to "topページ", root_path, class: 'btn btn-primary' %>
       </div>
     </div>
   </div>
