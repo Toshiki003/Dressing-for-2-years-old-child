@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   has_many :posts, dependent: :destroy
+  has_many :likes
 
   enum avatar: {
     fox: 0, 
@@ -24,5 +25,9 @@ class User < ApplicationRecord
 
   def own?(object)
     id == object.user_id
+  end
+
+  def liked_by?(post_id)
+    likes.where(post_id: post_id).exists?
   end
 end

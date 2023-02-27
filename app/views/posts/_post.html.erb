@@ -22,10 +22,19 @@
             <% if current_user.own?(post) %>
               <%= render 'crud_menus', post: post %>
             <% end %>
+            <% if current_user.liked_by?(post.id) %>
+              <td>いいねを外す</td>
+            <% else %>
+              <td>いいね</td>
+            <% end %>
             <ul class="list-inline">
               <li class="list-inline-item">
                 <%= image_tag "#{post.user.avatar}.png", size: '40x40' %>
                 <%= post.user.name %>
+              </li>
+              <li class="list-inline-item">
+                <%=  %>
+                <%= l post.created_at, format: :long %>
               </li>
               <div>
                 <%= render post.tags %>
