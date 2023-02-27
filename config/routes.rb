@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   post 'guest_login', to: 'user_sessions#guest_login'
 
   resources :posts
-  post 'like/:id', to:'likes#create', as: 'create_like'
+  post 'like/:id', to: 'likes#create', as: 'create_like'
+  delete 'like/:id', to: 'likes#destroy', as: 'destroy_like'
 end
