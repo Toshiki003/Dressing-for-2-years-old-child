@@ -1,0 +1,3 @@
+<%= link_to bookmarks_path(post_id: post.id), id: "js-bookmark-button-for-post-#{post.id}", class:"float-right", data: { turbo_method: :post }  do %>
+  <%= image_tag 'unbookmark_cat.png', size: '50x50' %>
+<% end %>

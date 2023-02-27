@@ -21,6 +21,8 @@
             <!-- ↓ここにcurrent_userで分岐を作り、ボタンを配置-->
             <% if current_user.own?(post) %>
               <%= render 'crud_menus', post: post %>
+            <% else %>
+              <%= render 'bookmark_button', post: post %>
             <% end %>
             <ul class="list-inline">
               <li class="list-inline-item">
