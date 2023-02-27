@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   post 'guest_login', to: 'user_sessions#guest_login'
 
   resources :posts
+  post 'like/:id', to:'likes#create', as: 'create_like'
 end
