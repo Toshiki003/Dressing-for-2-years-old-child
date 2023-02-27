@@ -36,6 +36,8 @@ ja:
     create:
       success: 'ログインしました'
       fail: 'ログインに失敗しました'
+    guest_login:
+      success: 'ゲストユーザーとしてログインしました'
     destroy:
       success: 'ログアウトしました'
   posts:
