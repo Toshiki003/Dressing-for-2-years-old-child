@@ -1,8 +1,21 @@
 .top-wrapper {
-  background-image: image-url("top_background.png");
-  height: calc(100vh - 134px);
-  position: relative;
+  background:
+    url(top_background.png);
+  // background-image: image-url("top_background.png");
+  // height: calc(100vh - 134px);
+  // position: relative;
   background-position: center;
+  width:
+   500px,
+   auto;
+  height:
+   500px;
+ // padding: 10px 20px;  
+  background-size:
+   contain,
+   cover;
+   background-repeat:no-repeat;
+
 
   .top-inner-text {
     position: absolute;
@@ -12,10 +25,11 @@
     width: 100%;
     text-align: center;
     font-size: 3rem;
-    color: white;
+    color: rgb(251, 3, 3);
 
     @media screen and (max-width: 767px) {
       font-size: 2.0rem;
     }
   }
+  
 }
