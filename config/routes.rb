@@ -11,4 +11,11 @@ Rails.application.routes.draw do
   resources :posts
   post 'like/:id', to: 'likes#create', as: 'create_like'
   delete 'like/:id', to: 'likes#destroy', as: 'destroy_like'
+  resources :posts do
+    collection do
+      get :bookmarks
+    end
+  end
+  resources :bookmarks, only: %i[create destroy]
+
 end

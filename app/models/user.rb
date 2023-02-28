@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes
 
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_posts, through: :bookmarks, source: :post
+
+
   enum avatar: {
     fox: 0, 
     dog: 1, 
@@ -29,5 +33,16 @@ class User < ApplicationRecord
 
   def liked_by?(post_id)
     likes.where(post_id: post_id).exists?
+    
+  def bookmark(post)
+    bookmark_posts << post
+  end
+
+  def unbookmark(post)
+    bookmark_posts.destroy(post)
+  end
+
+  def bookmark?(post)
+    bookmark_posts.include?(post)
   end
 end

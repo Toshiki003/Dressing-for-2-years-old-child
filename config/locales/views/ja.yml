@@ -50,14 +50,14 @@ ja:
       title: '投稿詳細'
     edit:
       title: '投稿編集'
-  #   bookmarks:
-  #     title: 'ブックマーク一覧'
-  #     no_result: 'ブックマーク中の投稿がありません'
-  # bookmarks:
-  #   create:
-  #     success: 'ブックマークしました'
-  #   destroy:
-  #     success: 'ブックマークを外しました'
+    bookmarks:
+      title: 'ブックマーク一覧'
+      no_result: 'ブックマーク中の投稿がありません'
+  bookmarks:
+    create:
+      success: 'ブックマークしました'
+    destroy:
+      success: 'ブックマークを外しました'
   # profiles:
   #   show:
   #     title: 'プロフィール'
