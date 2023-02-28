@@ -1,0 +1,4 @@
+<%= form_with model: search_form, url: search_posts_path, scope: :q, class: 'd-flex', method: :get do |f| %>
+  <%= f.search_field :title_or_content, id: 'search_field_of_post', class: 'form-control me-2', placeholder: 'タイトルまたは本文' %>
+  <%= f.submit '検索する', class: 'btn btn-outline-success' %>
+<% end %>

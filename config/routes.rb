@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get :bookmarks
+      get :search
     end
   end
   resources :bookmarks, only: %i[create destroy]
