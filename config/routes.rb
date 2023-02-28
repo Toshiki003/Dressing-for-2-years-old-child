@@ -8,5 +8,11 @@ Rails.application.routes.draw do
 
   post 'guest_login', to: 'user_sessions#guest_login'
 
-  resources :posts
+  resources :posts do
+    collection do
+      get :bookmarks
+    end
+  end
+  resources :bookmarks, only: %i[create destroy]
+
 end
