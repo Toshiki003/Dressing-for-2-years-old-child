@@ -27,6 +27,12 @@ class User < ApplicationRecord
     stegosaurus: 8
   } 
 
+  enum role: {
+    general: 0,
+    admin: 1,
+    guest: 2
+  }
+
   def own?(object)
     id == object.user_id
   end
