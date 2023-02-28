@@ -38,6 +38,7 @@ ja:
       role: 
           general: '一般'
           admin: '管理者'
+          guest: 'ゲスト'
     category:
       name:
         bath: 'お風呂'

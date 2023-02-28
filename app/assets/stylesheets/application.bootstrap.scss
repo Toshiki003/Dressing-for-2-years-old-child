@@ -1,7 +1,12 @@
 @import 'top';
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #242222;
+}
 
 .category-1{
     /*コレ*/box-shadow: 0 5px #0023b7;
