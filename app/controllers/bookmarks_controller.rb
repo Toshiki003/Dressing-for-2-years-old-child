@@ -8,6 +8,6 @@ class BookmarksController < ApplicationController
   def destroy
     post = current_user.bookmarks.find(params[:id]).post
     current_user.unbookmark(post)
-    redirect_to posts_path, success: t('.success')
+    redirect_to posts_path, success: t('.success'), status: :see_other 
   end
 end
