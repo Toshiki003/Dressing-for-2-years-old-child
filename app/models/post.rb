@@ -9,6 +9,10 @@ class Post < ApplicationRecord
   validates :content, presence: true, length: { maximum: 65_535 }
   validates :embed_youtube, length: { maximum: 200 }
 
+  scope :with_tag, ->(tag_name) { joins(:tags).where(tags: { name: tag_name }) }
+  scope :title_contain, ->(word) { where('title LIKE ?', "%#{word}%") }
+  scope :content_contain, ->(word) { where('posts.content LIKE ?', "%#{word}%") }
+
   def split_id_from_youtube_url
     # YoutubeならIDのみ抽出
     if self.embed_youtube?

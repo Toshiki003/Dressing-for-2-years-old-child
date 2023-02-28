@@ -1,3 +1,33 @@
-<p>ここはログイン前のヘッダーです</p>
-<%= link_to (t 'defaults.register'), new_user_path %>
-<%= link_to (t 'defaults.login'), login_path %>
+<header>
+  <nav class="navbar navbar-expand-lg" style="background-color: #c8e7ed;">
+    <div class="container-fluid">
+      <%= link_to root_path, class:'navbar-brand' do %>
+        <%= image_tag 'D2C_logo.png' %>
+      <% end %>
+      
+
+      <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent'
+        aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+        <span class='navbar-toggler-icon'></span>
+      </button>
+
+      
+        <!-- 検索フォーム -->
+      <%= render 'shared/search_post_form', search_form: @search_form %>
+      
+
+      <!-- 画面幅が小さくなった時に、collapseに入る要素。liで並列になっている-->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
+          <li class="nav-item">
+            <%= link_to (t 'defaults.register'), new_user_path, class: 'btn btn-info  me-2 text-white' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to (t 'defaults.login'), login_path, class: 'btn btn-info me-2 text-white' %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -2,7 +2,12 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy]
 
   def index
-    @posts = Post.all.includes(:user).order(created_at: :desc)
+    posts = if(tag_name = params[:tag_name])
+              Post.with_tag(tag_name)
+            else
+               Post.all
+            end
+    @posts = posts.order(created_at: :desc)
   end
 
   def new
@@ -45,6 +50,10 @@ class PostsController < ApplicationController
 
   def bookmarks
     @bookmark_posts = current_user.bookmark_posts.includes(:user).order(created_at: :desc)
+  end
+
+  def search
+    @posts = @search_form.search.includes(:user)
   end
 
   private

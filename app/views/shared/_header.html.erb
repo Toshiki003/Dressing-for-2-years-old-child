@@ -13,17 +13,14 @@
       </button>
 
       
-        <!-- 検索フォーム　後でrenderで書き換える-->
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success btn-sm" type="submit">Search</button>
-        </form>
+        <!-- 検索フォーム -->
+      <%= render 'shared/search_post_form', search_form: @search_form %>
       
 
       <!-- 画面幅が小さくなった時に、collapseに入る要素。liで並列になっている-->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center"> <!-- ここが基礎編とは違う-->
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
           <li class="nav-item">
             <%= link_to t('posts.new.title'), new_post_path, class: 'btn btn-info btn-sm me-2' %>
           </li>
@@ -51,7 +48,6 @@
               </div>
               <div class="dropdown-divider"></div>
               <ul class="list-unstyled">
-              <!-- 「自分の投稿一覧」に変更予定 -->
                 <li>
                   <%= link_to "#", class:"dropdown-item" do %>
                     <%= image_tag 'like_dog.png', size: '40x40' %>いいね一覧
