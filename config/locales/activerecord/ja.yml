@@ -10,7 +10,7 @@ ja:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
-        name: '名前'
+        name: 'ユーザー名'
         avatar: 'アバター'   
         role: '権限'
         created_at: '作成日時'
