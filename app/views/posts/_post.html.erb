@@ -20,19 +20,7 @@
 
             <h4 class="card-title">
               <%= link_to post.title, post_path(post) %>
-            </h4>
-            <p class="card-text"><%= post.content %></p>
-            <!-- ↓ここにcurrent_userで分岐を作り、ボタンを配置-->
-            <% if current_user.own?(post) %>
-              <%= render 'crud_menus', post: post %>
-            <% end %>
-            <% if current_user.liked_by?(post.id) %>
-              <td><%= link_to 'いいねを外す', destroy_like_path(post), data: { turbo_method: :delete } %></td>
-            <% else %>
-              <td><%= link_to 'いいね', create_like_path(post), data: { turbo_method: :post } %></td>
-            <% end %>
-
-            
+            </h4>            
             <h5 class="card-text"><%= post.content %></h5>
 
             <ul class="list-inline">
@@ -44,6 +32,7 @@
                 <% if current_user.own?(post) %>
                   <%= render 'crud_menus', { post: post } %>
                 <% else %>
+                  <%= render 'actions/like_button', { post: post } %>
                   <%= render 'actions/bookmark_button', { post: post } %>
                 <% end %>
               </li>
