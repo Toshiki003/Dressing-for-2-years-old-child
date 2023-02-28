@@ -33,6 +33,7 @@ class User < ApplicationRecord
 
   def liked_by?(post_id)
     likes.where(post_id: post_id).exists?
+  end
     
   def bookmark(post)
     bookmark_posts << post
