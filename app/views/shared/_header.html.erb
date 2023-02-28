@@ -30,9 +30,6 @@
           <li class="nav-item">
             <%= link_to t('posts.index.title'), posts_path, class: 'btn btn-info btn-sm me-2' %>
           </li>
-          <li class="nav-item">
-              <%= link_to 'ブックマーク', bookmarks_posts_path, class: 'btn btn-info btn-sm me-2' %>
-          </li>
 
           <li class="nav-item dropdown ms-2 d-inline-block">
             <a class="rounded-circle" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
@@ -56,14 +53,19 @@
               <ul class="list-unstyled">
               <!-- 「自分の投稿一覧」に変更予定 -->
                 <li>
-                  <%= link_to '#', class: 'dropdown-item' do %>
-                    <i class="bi bi-calendar-check me-2"></i>マイページ
+                  <%= link_to "#", class:"dropdown-item" do %>
+                    <%= image_tag 'like_dog.png', size: '40x40' %>いいね一覧
                   <% end %>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi bi-person me-2"></i>プロフィール
-                  </a>
+                  <%= link_to bookmarks_posts_path, class:"dropdown-item" do %>
+                    <%= image_tag 'bookmark.png', size: '40x40' %>ブックマーク
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to profile_path, class:"dropdown-item" do %>
+                    <%= image_tag 'profile_transparent.png', size: '40x40' %>プロフィール
+                  <% end %>
                 </li>
               </ul>
               <div class="dropdown-divider"></div>

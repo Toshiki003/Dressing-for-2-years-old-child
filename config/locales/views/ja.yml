@@ -58,11 +58,11 @@ ja:
       success: 'ブックマークしました'
     destroy:
       success: 'ブックマークを外しました'
-  # profiles:
-  #   show:
-  #     title: 'プロフィール'
-  #   edit:
-  #     title: 'プロフィール編集'
+  profiles:
+    show:
+      title: 'プロフィール'
+    edit:
+      title: 'プロフィール編集'
   # password_resets: 
   #   new:
   #     title: 'パスワードリセット申請'
