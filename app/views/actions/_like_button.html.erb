@@ -1,0 +1,5 @@
+<% if current_user.liked_by?(post.id) %>
+  <%= render 'actions/unlike', { post: post } %>
+<% else %>
+  <%= render 'actions/like', { post: post } %>
+<% end %>

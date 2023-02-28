@@ -1,0 +1,4 @@
+<%= link_to destroy_like_path(post), data: { turbo_method: :delete } do %>
+  <%= image_tag 'like_cat.png', size: '60x60' %>
+<% end %>
+<%= post.likes.count %>
