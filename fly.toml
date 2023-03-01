@@ -1,4 +1,4 @@
-# fly.toml file generated for d2c on 2023-03-01T16:57:05+09:00
+# fly.toml file generated for d2c on 2023-03-01T17:19:22+09:00
 
 app = "d2c"
 kill_signal = "SIGINT"
