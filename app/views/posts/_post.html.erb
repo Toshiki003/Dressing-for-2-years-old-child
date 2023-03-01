@@ -3,31 +3,47 @@
         <div class="card shadow" style="background-color: #ffffc2;">
           <h4 class="card-header" style="background-color: #ffffc2;">
               <%= link_to post.title, post_path(post) %>
-            </h4>
-          <!-- このしたのif文は後で削除する-->
-          <% if post.category %>
-            <div class="category-1"><%= post.category.name %></div>
-          <% end %>
-          <%= l post.created_at, format: :short %>
-          <% if post.embed_youtube? %>
-            <iframe width="400" height="225" src="https://www.youtube.com/embed/<%= "#{post.split_id_from_youtube_url}" %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <% else %>
-            <%= link_to post_path(post) do %>
-              <%= image_tag 'fox.png', class: 'card-img-top', size: '300x300' %>
+          </h4>
+          <div class="divider"></div>
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <p>カテゴリ</p>
+              </li>
+              <li class="list-inline-item">
+                <!-- このしたのif文は後で削除する-->
+                <% if post.category %>
+                  <p class="badge rounded-pill bg-success"><%= post.category.name %></p>
+                <% end %>
+              </li>
+              <li class="list-inline-item">
+                <p>投稿日時</p>
+              </li>
+              <li class="list-inline-item">
+                <%= l post.created_at, format: :short %>
+              </li>
+            </ul>
+            <% if post.embed_youtube? %>
+              <iframe width="400" height="225" src="https://www.youtube.com/embed/<%= "#{post.split_id_from_youtube_url}" %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <% else %>
+              <%= link_to post_path(post) do %>
+                <%= image_tag 'fox.png', class: 'card-img-top', size: '300x300' %>
+              <% end %>
             <% end %>
-          <% end %>
+          <div class="divider"></div>
           <div class="card-body">
-
-            <h4 class="card-title">
-              <%= link_to post.title, post_path(post) %>
-            </h4>            
+         
             <h5 class="card-text"><%= post.content %></h5>
-
+          </div>
+          <div class="card-footer">
             <ul class="list-inline">
               <li class="list-inline-item">
                 <%= image_tag "#{post.user.avatar}.png", size: '80x80' %>
-                <h5><%= post.user.name %></h5>
               </li>
+              <li class="list-inline-item">
+                <p>投稿ユーザー</p>
+                <h5><strong><%= post.user.name %></strong></h5>
+              </li>
+                              
               <li class="list-inline-item">
                 <% if current_user.own?(post) %>
                   <%= render 'crud_menus', { post: post } %>
@@ -36,15 +52,12 @@
                   <%= render 'actions/bookmark_button', { post: post } %>
                 <% end %>
               </li>
-              <li class="list-inline-item">
-                <%=  %>
-                <%= l post.created_at, format: :long %>
-              </li>
             </ul>
             <div>
               <%= render post.tags %>
             </div>
           </div>
+          
         </div>
       </div>
   </div> 

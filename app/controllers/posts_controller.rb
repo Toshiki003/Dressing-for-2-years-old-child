@@ -7,7 +7,7 @@ class PostsController < ApplicationController
             else
                Post.all
             end
-    @posts = posts.order(created_at: :desc)
+    @posts = posts.includes(:user).order(created_at: :desc)
   end
 
   def new
