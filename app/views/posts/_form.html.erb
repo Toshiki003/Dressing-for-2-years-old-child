@@ -2,7 +2,7 @@
     <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">
     <%= f.fields_for :category do |i| %>
-        <%= i.select :category_id, Category.names_i18n.invert, {}, class: "form-control" %>
+        <%= i.select :category_id, [["お風呂", 1], ["歯磨き", 2]], prompt: "カテゴリを選択してください", class: "form-control" %>
     <% end %>
     </div>
     <div class="form-group">
