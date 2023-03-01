@@ -2,7 +2,6 @@
     <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">
     <%= f.fields_for :category do |i| %>
-        <%= i.label :category, 'カテゴリー' %>
         <%= i.select :category_id, Category.names_i18n.invert, {}, class: "form-control" %>
     <% end %>
     </div>
