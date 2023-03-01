@@ -1,6 +1,6 @@
-# fly.toml file generated for dressing-for-2-years-old-child on 2023-03-01T09:40:26+09:00
+# fly.toml file generated for d2c on 2023-03-01T16:57:05+09:00
 
-app = "dressing-for-2-years-old-child"
+app = "d2c"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
