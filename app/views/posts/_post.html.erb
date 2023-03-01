@@ -10,7 +10,6 @@
                 <p>カテゴリ</p>
               </li>
               <li class="list-inline-item">
-                <!-- このしたのif文は後で削除する-->
                 <% if post.category %>
                   <p class="badge rounded-pill bg-success"><%= post.category.name %></p>
                 <% end %>
@@ -23,7 +22,9 @@
               </li>
             </ul>
             <% if post.embed_youtube? %>
-              <iframe width="400" height="225" src="https://www.youtube.com/embed/<%= "#{post.split_id_from_youtube_url}" %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <div class="youtube">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= "#{post.split_id_from_youtube_url}" %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
             <% else %>
               <%= link_to post_path(post) do %>
                 <%= image_tag 'fox.png', class: 'card-img-top', size: '300x300' %>
@@ -32,7 +33,7 @@
           <div class="divider"></div>
           <div class="card-body">
          
-            <h5 class="card-text"><%= post.content %></h5>
+            <h5 class="card-text"><%= simple_format(post.content.truncate(50)) %></h5>
           </div>
           <div class="card-footer">
             <ul class="list-inline">
