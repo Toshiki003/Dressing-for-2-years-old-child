@@ -31,14 +31,14 @@
           <li class="nav-item dropdown ms-2 d-inline-block">
             <a class="rounded-circle" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
               <div class="avatar avatar-md">
-                <%= image_tag current_user.avatar, class: 'rounded-circle avatar-sm', size: '60' %>
+                <%= image_tag "#{current_user.avatar}.png", class: 'rounded-circle avatar-sm', size: '60' %>
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end">
               <div class="dropdown-item">
                 <div class="d-flex">
                   <div class="avatar avatar-md">
-                    <%= image_tag current_user.avatar, class: 'rounded-circle avatar-sm', size: '60' %>
+                    <%= image_tag "#{current_user.avatar}.png", class: 'rounded-circle avatar-sm', size: '60' %>
                   </div>
                   <div class="ms-3 lh-1">
                     <h5 class="mb-1"><%= current_user.name %></h5>
