@@ -11,7 +11,7 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         name: 'ユーザー名'
-        avatar: 'アバター'   
+        avatar: 'アイコン'   
         role: '権限'
         created_at: '作成日時'
       post:
