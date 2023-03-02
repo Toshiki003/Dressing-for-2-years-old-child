@@ -1,22 +1,13 @@
-.top-wrapper {
-  background:
-    url(top_background.png);
-  // background-image: image-url("top_background.png");
-  // height: calc(100vh - 134px);
-  // position: relative;
-  background-position: center;
-  width:
-   500px,
-   auto;
-  height:
-   500px;
- // padding: 10px 20px;  
-  background-size:
-   contain,
-   cover;
-   background-repeat:no-repeat;
+
+.top-background {
+  background-image: image-url("images/toothbrush.png");
+}
 
 
-  
-  
+.home-content {
+  text-align: center;
+}
+.home-content h2 {
+  font-size: 1.125rem;
+  margin: 10px 0 42px;
 }
