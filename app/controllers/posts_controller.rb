@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = @search_form.search.includes(:user)
+    @posts = @search_form.search.includes(:user).order(created_at: :desc)
   end
 
   private
