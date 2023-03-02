@@ -36,4 +36,3 @@
 /node_modules
 # dotenv-railsの環境変数管理で追記
 /.env
-/db/fixtures
