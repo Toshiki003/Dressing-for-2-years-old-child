@@ -1,12 +1,31 @@
 <div class='top-background' style="background-image: url(<%= asset_path('toothbrush.png') %>);">
-  <div class="home-content wrapper">
+  <div class="top-content wrapper">
+    <br>
+    <br>
     <div class='top-logo'><%= image_tag "top.png", class:"img-fluid" %></div>
     <h3>Dressing for 2 years children</h3>
-    <h2>2歳児の身支度を親子で楽しもう！</h2>
+    <h1>2歳児の身支度を、親子で楽しもう！</h1>
     <%= image_tag 'fox.png', class: 'mx-auto', size: '400x400' %>
     <% if !logged_in? %>
       <%= link_to "始めてみる", new_user_path, class:"btn btn-primary" %>
       <%= link_to "ゲストログイン", guest_login_path, data: { turbo_method: :post }, class:"btn btn-info text-white" %>
     <% end %> 
   </div>
+  <div class="top-content-second wrapper">
+    <h3>イヤイヤ期の2歳のお子さん、</h3>
+    <br>
+    <h5>まっすぐお風呂に入ってくれますか？</h5>
+    <br>
+    <h5>歯磨きをしっかり磨かせてもらえますか？</h5>
+    <br>
+    <h5>毎回泣いていると大変ですよね。</h5>
+    <br>
+    <br>
+    <h4>D2Cは、日常の身支度が楽しくできる工夫や声かけを共有できる投稿サービスです。</h4>
+    <br>
+    <br>
+    <br>
+  </div>
+
 </div>
+
