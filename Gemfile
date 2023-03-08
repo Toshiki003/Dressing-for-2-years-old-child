@@ -89,6 +89,9 @@ group :development do
   # Lintチェック
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+
+  # Mailer
+  gem 'letter_opener_web', '~> 1.0'
 end
 
 gem 'cssbundling-rails', '~> 1.1'
