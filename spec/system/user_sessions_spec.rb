@@ -44,6 +44,11 @@ RSpec.describe 'UserSessions', type: :system do
   end
 
   describe 'ゲストログイン' do
-    # 後で書きます
+    it 'ゲストログインが成功する' do
+      visit root_path
+      click_on 'ゲストログイン'
+      expect(page).to have_content 'ゲストユーザーとしてログインしました'
+      expect(current_path).to eq posts_path
+    end
   end
 end
