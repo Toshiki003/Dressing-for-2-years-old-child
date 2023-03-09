@@ -11,12 +11,12 @@ RSpec.describe 'UserSessions', type: :system do
         fill_in 'パスワード',	with: 'password'
         click_button 'ログイン'
         expect(page).to have_content 'ログインしました'
-        # posts機能実装後コメントアウトを外す↓
-        # expect(current_path).to eq posts_path
+        expect(current_path).to eq posts_path
       end
 
       it 'ログアウトができる' do
         login_as(user)
+        find(".avatar.avatar-md").click
         click_link 'ログアウト'
         expect(page).to have_content 'ログアウトしました'
       end
