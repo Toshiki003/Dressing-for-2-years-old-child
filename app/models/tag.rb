@@ -6,6 +6,7 @@ class Tag < ApplicationRecord
 
   #人気のタグを取得　コントローラからモデルへ移動
   def self.popular_tags
-    Tag.find(PostTag.group(:post_id).count.sort_by{ |a| a[1]}.reverse.take(3)).pluck(:name)
+    Tag.find(PostTag.group(:tag_id).count.sort_by{ |a| a[1]}.reverse.take(3).map{|b| b[0]})
+    
   end
 end

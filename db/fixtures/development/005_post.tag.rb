@@ -9,4 +9,10 @@ PostTag.seed(:id, [
   { id: 8, post_id: 5, tag_id: 8 },
   { id: 9, post_id: 5, tag_id: 9 },
   { id: 10, post_id: 5, tag_id: 10 },
+  { id: 11, post_id: 5, tag_id: 1 },
+  { id: 12, post_id: 5, tag_id: 2 },
+  { id: 13, post_id: 4, tag_id: 1 },
+  { id: 14, post_id: 3, tag_id: 1 },
+  { id: 15, post_id: 3, tag_id: 2 },
+  { id: 16, post_id: 2, tag_id: 10 }
 ])
