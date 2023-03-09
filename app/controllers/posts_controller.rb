@@ -8,6 +8,7 @@ class PostsController < ApplicationController
                Post.all
             end
     @posts = posts.includes(:user).order(created_at: :desc)
+    @popular_tags = Tag.popular_tags
   end
 
   def new

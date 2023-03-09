@@ -38,5 +38,6 @@ class Post < ApplicationRecord
     # NOTE: pluckだと新規作成失敗時に値が残らない(返り値がnilになる)
     tags.map(&:name).join(',')
   end
+
   
 end
