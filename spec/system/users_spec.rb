@@ -10,7 +10,7 @@ RSpec.describe 'Users', type: :system do
 
       it 'ユーザーの新規作成ができる' do
         visit new_user_path
-        fill_in '名前', with: 'test_name'
+        fill_in 'ユーザー名', with: 'test_name'
         fill_in 'メールアドレス', with: 'test@example.com'
         fill_in 'パスワード', with: 'password'
         fill_in 'パスワード確認', with: 'password'
@@ -23,7 +23,7 @@ RSpec.describe 'Users', type: :system do
     context '異常系' do
       it 'メールアドレスが未入力の場合、新規作成できない' do
         visit new_user_path
-        fill_in '名前', with: 'test_name'
+        fill_in 'ユーザー名', with: 'test_name'
         fill_in 'メールアドレス', with: ''
         fill_in 'パスワード', with: 'password'
         fill_in 'パスワード確認', with: 'password'
@@ -35,7 +35,7 @@ RSpec.describe 'Users', type: :system do
 
       it 'メールアドレスが登録してあり重複する場合、新規作成できない' do
         visit new_user_path
-        fill_in '名前', with: 'test_name'
+        fill_in 'ユーザー名', with: 'test_name'
         fill_in 'メールアドレス', with: existed_user.email
         fill_in 'パスワード', with: 'password'
         fill_in 'パスワード確認', with: 'password'
