@@ -12,6 +12,7 @@ class Post < ApplicationRecord
   scope :with_tag, ->(tag_name) { joins(:tags).where(tags: { name: tag_name }) }
   scope :title_contain, ->(word) { where('title LIKE ?', "%#{word}%") }
   scope :content_contain, ->(word) { where('posts.content LIKE ?', "%#{word}%") }
+  scope :with_category, ->(category_name) { joins(:category).where(categories: { name: category_name }) }
 
   def split_id_from_youtube_url
     # YoutubeならIDのみ抽出

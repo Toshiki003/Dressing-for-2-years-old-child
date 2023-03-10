@@ -7,6 +7,11 @@ class PostsController < ApplicationController
             else
                Post.all
             end
+    posts = if(category_name = params[:category_name])
+              Post.with_category(category_name)
+            else
+              Post.all
+            end
     @posts = posts.includes(:user).order(created_at: :desc)
     @popular_tags = Tag.popular_tags
   end

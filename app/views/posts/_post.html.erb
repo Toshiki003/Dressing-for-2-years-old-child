@@ -10,9 +10,7 @@
                 <p>カテゴリ</p>
               </li>
               <li class="list-inline-item">
-                <% if post.category %>
-                  <p class="badge rounded-pill bg-success"><%= post.category.name %></p>
-                <% end %>
+                <%= render partial: 'categories/category', locals: { post: post } %>
               </li>
               <li class="list-inline-item">
                 <p>投稿日時</p>
