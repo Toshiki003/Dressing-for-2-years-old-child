@@ -29,3 +29,21 @@
 
 </div>
 
+  <!-- 新着投稿3件取得 -->
+<nav class="container pt-4 pb-4">
+  <div class="container pb-4">
+    <button class="btn btn-outline-success btn-lg">新着の投稿</button>
+    <p>ログインすると投稿・いいね・ブックマークを使うことができます</p>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+        <% @new_arrivals.each do |post| %>
+          <%= render partial: 'posts/post', locals: { post: post } %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
