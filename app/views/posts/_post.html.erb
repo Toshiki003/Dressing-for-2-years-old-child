@@ -42,15 +42,16 @@
                 <p>投稿ユーザー</p>
                 <h5><strong><%= post.user.name %></strong></h5>
               </li>
-                              
-              <li class="list-inline-item">
-                <% if current_user.own?(post) %>
-                  <%= render 'crud_menus', { post: post } %>
-                <% else %>
-                  <%= render 'actions/like_button', { post: post } %>
-                  <%= render 'actions/bookmark_button', { post: post } %>
-                <% end %>
-              </li>
+              <% if logged_in? %>
+                <li class="list-inline-item">
+                  <% if current_user.own?(post) %>
+                    <%= render 'crud_menus', { post: post } %>
+                  <% else %>
+                    <%= render 'actions/like_button', { post: post } %>
+                    <%= render 'actions/bookmark_button', { post: post } %>
+                  <% end %>
+                </li>
+              <% end %>
             </ul>
             <div>
               <%= render post.tags %>
