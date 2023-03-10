@@ -1,10 +1,12 @@
 <nav class="container pt-5 pb-5">
   <div class="container-fluid">
+  <!-- 人気のタグ3つを表示 -->
     <div class="">
       <% @popular_tags.each do | tag |  %>
         <%= tag.name %>
       <% end %>
     </div>
+    <!-- post一覧-->
     <div class="row">
       <div class="col-12">
         <div class="row">
