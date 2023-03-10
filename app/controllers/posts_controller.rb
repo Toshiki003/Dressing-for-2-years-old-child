@@ -4,13 +4,10 @@ class PostsController < ApplicationController
   def index
     posts = if(tag_name = params[:tag_name])
               Post.with_tag(tag_name)
-            else
-               Post.all
-            end
-    posts = if(category_name = params[:category_name])
+            elsif (category_name = params[:category_name])
               Post.with_category(category_name)
             else
-              Post.all
+               Post.all
             end
     @posts = posts.includes(:user).order(created_at: :desc)
     @popular_tags = Tag.popular_tags
