@@ -1,6 +1,7 @@
 @import 'top';
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+@import 'my-sheet';
 @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
 
 
@@ -8,6 +9,8 @@ body {
   font-family: 'Kosugi Maru', sans-serif;
   color: #242222;
   background-color: #fefdf4;
+  line-height: 1.5;
+  letter-spacing: .1em;
 }
 
 .youtube {

@@ -6,13 +6,15 @@
           </h4>
           <div class="divider"></div>
             <ul class="list-inline">
-              <li class="list-inline-item">
+              <li class="list-inline-item ps-3">
                 <p>カテゴリ</p>
               </li>
-              <li class="list-inline-item">
-                <%= render partial: 'categories/category', locals: { post: post } %>
-              </li>
-              <li class="list-inline-item">
+              <% if post.category.present? %>
+                <li class="list-inline-item">
+                  <%= render partial: 'categories/category', locals: { post: post } %>
+                </li>
+              <% end %>
+              <li class="list-inline-item ps-3">
                 <p>投稿日時</p>
               </li>
               <li class="list-inline-item">

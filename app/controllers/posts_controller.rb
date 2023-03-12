@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.build_category
+    @default_tag = "#育児あるある"
   end
 
   def create
@@ -33,7 +34,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def edit; end
+  def edit
+    @default_tag = "#育児あるある"
+  end
 
   def update
     @post.assign_attributes(post_params)
