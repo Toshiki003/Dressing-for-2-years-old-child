@@ -47,7 +47,7 @@
               <% if logged_in? %>
                 <li class="list-inline-item">
                   <% if current_user.own?(post) %>
-                    <%= render 'crud_menus', { post: post } %>
+                    <%= render partial: 'posts/crud_menus',locals: { post: post } %>
                   <% else %>
                     <%= render 'actions/like_button', { post: post } %>
                     <%= render 'actions/bookmark_button', { post: post } %>
@@ -57,6 +57,14 @@
             </ul>
             <div>
               <%= render post.tags %>
+              
+                <%= link_to post_path(post), class: 'float-end', style:'text-decoration:none;'  do %>
+                  <% if post.comments.present? %>
+                    <i class="fa-regular fa-comment-dots fa-lg"></i> <%= post.comments.count %>
+                  <% else %>
+                    <i class="fa-regular fa-comment fa-lg"></i> <%= post.comments.count %>
+                  <% end %>
+                <% end %>                  
             </div>
           </div>
           
