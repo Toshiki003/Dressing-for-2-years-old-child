@@ -5,13 +5,18 @@
     <div class='top-logo'><%= image_tag "top.png", class:"img-fluid" %></div>
     <h3>Dressing for 2 years children</h3>
     <h1>2歳児の身支度を、親子で楽しもう！</h1>
-    <%= image_tag 'fox.png', class: 'mx-auto', size: '400x400' %>
-    <% if !logged_in? %>
-      <%= link_to "始めてみる", new_user_path, class:"btn btn-primary" %>
-      <%= link_to "ゲストログイン", guest_login_path, data: { turbo_method: :post }, class:"btn btn-info text-white" %>
+    <%= image_tag 'fox.png', class: 'mx-auto', size: '300x300' %>
+    <% if logged_in? %>
+      <%= link_to t('posts.index.title'), posts_path, class: 'btn btn-info text-white me-2 btn-lg' %>
+    <% else %>
+      <%= link_to "始めてみる", new_user_path, class:"btn btn-primary btn-lg" %>
+      <%= link_to "ゲストログイン", guest_login_path, data: { turbo_method: :post }, class:"btn btn-info text-white btn-lg" %>
     <% end %> 
   </div>
-  <div class="top-content-second wrapper">
+</div>
+<div class='top-background-second' style="background-image: url(<%= asset_path('top_backimage.png') %>);">
+  <div class="top-content-second mt-3 mb-2">
+    <br>
     <h3>イヤイヤ期の2歳のお子さん、</h3>
     <br>
     <h5>まっすぐお風呂に入ってくれますか？</h5>
@@ -21,12 +26,17 @@
     <h5>毎回泣いていると大変ですよね。</h5>
     <br>
     <br>
-    <h4>D2Cは、日常の身支度が楽しくできる工夫や声かけを共有できる投稿サービスです。</h4>
+    <h4>D2Cは、日常の身支度がより楽しくなる</h4>
+    <h4>おうちの工夫を共有できる投稿サービスです。</h4>
     <br>
     <br>
     <br>
+    <% if logged_in? %>
+      <%= link_to t('posts.index.title'), posts_path, class: 'btn btn-info text-white me-2 btn-lg' %>
+    <% else %>
+      <%= link_to "始めてみる", new_user_path, class:"btn btn-primary btn-lg" %>
+    <% end %> 
   </div>
-
 </div>
 
   <!-- 新着投稿3件取得 -->
