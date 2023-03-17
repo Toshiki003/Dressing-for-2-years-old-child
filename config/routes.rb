@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post 'like/:id', to: 'likes#create', as: 'create_like'
   delete 'like/:id', to: 'likes#destroy', as: 'destroy_like'
   resources :posts do
+    resources :comments, only: %i[create destroy], shallow: true
     collection do
       get :bookmarks
       get :search
