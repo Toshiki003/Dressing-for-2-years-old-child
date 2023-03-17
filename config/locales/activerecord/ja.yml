@@ -4,6 +4,7 @@ ja:
       user: 'ユーザー'
       post: '投稿'
       category: 'カテゴリ'
+      comment: 'コメント'
       
     attributes: 
       user:
@@ -19,8 +20,8 @@ ja:
         content: '内容'
         embed_youtube: 'YouTube URL(任意)'
         created_at: '作成日時'
-      # comment:
-      #   body: 'コメント'
+      comment:
+        body: 'コメント'
       category: 
         name: 'カテゴリ名'
   enums:
