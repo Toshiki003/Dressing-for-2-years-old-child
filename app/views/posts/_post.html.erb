@@ -57,6 +57,14 @@
             </ul>
             <div>
               <%= render post.tags %>
+              
+                <%= link_to post_path(post), class: 'float-end', style:'text-decoration:none;'  do %>
+                  <% if post.comments.present? %>
+                    <i class="fa-regular fa-comment-dots fa-lg"></i> <%= post.comments.count %>
+                  <% else %>
+                    <i class="fa-regular fa-comment fa-lg"></i> <%= post.comments.count %>
+                  <% end %>
+                <% end %>                  
             </div>
           </div>
           

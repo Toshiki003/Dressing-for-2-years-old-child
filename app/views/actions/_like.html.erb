@@ -1,4 +1,4 @@
-<%= link_to create_like_path(post), data: { turbo_method: :post } do %>
+<%= link_to create_like_path(post), style:'text-decoration:none;', data: { turbo_method: :post } do %>
   <%= image_tag 'unlike_dog.png', size: '60x60' %>
+  <%= post.likes.count %>
 <% end %>
-<%= post.likes.count %>
