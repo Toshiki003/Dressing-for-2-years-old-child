@@ -7,13 +7,8 @@
     <div id="js-comment-<%= comment.id %>">
       <%= simple_format(comment.body) %>
     </div>
-    <div id="js-textarea-comment-box-<%= comment.id %>" style="display: none;">
-      <textarea id="js-textarea-comment-<%= comment.id %>" class="form-control mb-1"><%= comment.body %></textarea>
-      <button class="btn btn-light js-button-edit-comment-cancel" data-comment-id="<%= comment.id %>">キャンセル</button>
-      <button class="btn btn-success js-button-comment-update" data-comment-id="<%= comment.id %>">更新</button>
-    </div>
   </td>
-
+  
   <% if current_user.own?(comment) %>
     <td class="action">
       <ul class="list-inline justify-content-center" style="float: right;">
