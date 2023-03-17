@@ -6,7 +6,6 @@ RSpec.describe 'Users', type: :system do
     let(:existed_user) { create(:user) }
 
     context '正常系' do
-      # 2/22 click_buttonをexpect文にかませるとエラーが出るので、シンプルにclick_buttonのみでテスト。testDBに原因？
 
       it 'ユーザーの新規作成ができる' do
         visit new_user_path
