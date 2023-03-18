@@ -362,6 +362,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activestorage (~> 7.0)
   annotate
   better_errors
   binding_of_caller
