@@ -27,7 +27,7 @@
               </div>
             <% else %>
               <%= link_to post_path(post) do %>
-                <%= image_tag 'default01.png', class: 'card-img-top', size: '228x228' %>
+                <%= image_tag "#{post.category.name}.png", class: 'card-img-top', size: '228x228' %>
               <% end %>
             <% end %>
           <div class="divider"></div>
