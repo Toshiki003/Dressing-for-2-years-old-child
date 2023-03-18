@@ -16,7 +16,7 @@
                   <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= "#{@post.split_id_from_youtube_url}" %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
               <% else %>
-                <%= image_tag 'fox.png', class: 'card-img-top img-fluid', size: '300x200' %>
+                <%= image_tag "#{@post.category.name}.png", class: 'card-img-top img-fluid', size: '300x200' %>
               <% end %>  
             </div>
             <di class='col-md-9'>

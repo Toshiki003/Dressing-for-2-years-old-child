@@ -6,7 +6,7 @@
           </h4>
           <div class="divider"></div>
             <ul class="list-inline">
-              <li class="list-inline-item ps-3">
+              <li class="list-inline-item">
                 <p>カテゴリ</p>
               </li>
               <% if post.category.present? %>
@@ -14,7 +14,7 @@
                   <%= render partial: 'categories/category', locals: { post: post } %>
                 </li>
               <% end %>
-              <li class="list-inline-item ps-3">
+              <li class="list-inline-item">
                 <p>投稿日時</p>
               </li>
               <li class="list-inline-item">
@@ -27,7 +27,7 @@
               </div>
             <% else %>
               <%= link_to post_path(post) do %>
-                <%= image_tag 'fox.png', class: 'card-img-top', size: '300x300' %>
+                <%= image_tag "#{post.category.name}.png", class: 'card-img-top', size: '228x228' %>
               <% end %>
             <% end %>
           <div class="divider"></div>

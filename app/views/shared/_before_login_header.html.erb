@@ -11,20 +11,15 @@
         <span class='navbar-toggler-icon'></span>
       </button>
 
-      
-        <!-- 検索フォーム -->
-      <%= render 'shared/search_post_form', search_form: @search_form %>
-      
-
       <!-- 画面幅が小さくなった時に、collapseに入る要素。liで並列になっている-->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
           <li class="nav-item">
-            <%= link_to (t 'defaults.register'), new_user_path, class: 'btn btn-info  me-2 text-white' %>
+            <%= link_to (t 'defaults.register'), new_user_path, class: 'btn btn-info  me-2 text-white btn-lg' %>
           </li>
           <li class="nav-item">
-            <%= link_to (t 'defaults.login'), login_path, class: 'btn btn-info me-2 text-white' %>
+            <%= link_to (t 'defaults.login'), login_path, class: 'btn btn-info me-2 text-white btn-lg' %>
           </li>
         </ul>
       </div>

@@ -1,6 +1,8 @@
 
 .top-background {
-  background-image: image-url("images/toothbrush.png");
+  background-position: 50% 20%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
@@ -13,4 +15,9 @@
 }
 .top-content-second {
   text-align: center;
+}
+.top-background-second {
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-x: 50%;
 }
