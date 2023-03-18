@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_many :tags, through: :post_tags
   has_many :likes
   has_many :comments, dependent: :destroy
+  has_one_attached :image
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :content, presence: true, length: { maximum: 65_535 }
