@@ -81,3 +81,4 @@ gem 'cssbundling-rails', '~> 1.1'
 gem "dockerfile-rails", ">= 1.2", :group => :development
 
 gem "activestorage", "~> 7.0"
+gem 'image_processing', '~> 1.2'

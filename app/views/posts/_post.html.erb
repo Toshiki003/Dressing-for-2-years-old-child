@@ -21,7 +21,9 @@
                 <%= l post.created_at, format: :short %>
               </li>
             </ul>
-            <% if post.embed_youtube? %>
+            <% if post.image.attached? %>
+                <%= image_tag post.image.variant(resize_to_limit: [228, 228]) , class: 'card-img-top' %>
+            <% elsif post.embed_youtube? %>
               <div class="youtube">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= "#{post.split_id_from_youtube_url}" %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
