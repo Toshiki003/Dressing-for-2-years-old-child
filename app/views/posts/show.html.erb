@@ -22,9 +22,11 @@
               <% end %>  
             </div>
             <di class='col-md-9'>
-                <% if @post.category %>
-                    <p class="badge rounded-pill bg-success"><%= @post.category.name %></p>
-                <% end %>
+              <% if @post.category.present? %>
+                <li class="list-inline-item">
+                  <%= render partial: 'categories/category', locals: { post: @post } %>
+                </li>
+              <% end %>
                 <h3><%= @post.title %></h3>
                 <%= simple_format(@post.content) %>
             </div>
