@@ -1,12 +1,13 @@
 class LikesController < ApplicationController
 
   def create
-    Like.create(user_id: current_user.id, post_id: params[:id])
-    redirect_to posts_path
+    @post = Post.find(params[:post_id])
+    Like.create!(user_id: current_user.id, post_id: @post.id)
+    
   end
   
   def destroy
-    Like.find_by(user_id: current_user.id, post_id: params[:id]).destroy
-    redirect_to posts_path
+    @post = current_user.likes.find(params[:id]).post
+    current_user.likes.destroy(params[:id])
   end
 end

@@ -11,8 +11,6 @@ Rails.application.routes.draw do
 
   post 'guest_login', to: 'user_sessions#guest_login'
 
-  post 'like/:id', to: 'likes#create', as: 'create_like'
-  delete 'like/:id', to: 'likes#destroy', as: 'destroy_like'
   resources :posts do
     resources :comments, only: %i[create destroy], shallow: true
     collection do
@@ -20,6 +18,7 @@ Rails.application.routes.draw do
       get :search
     end
   end
+  resources :likes, only: %i[create destroy]
   resources :bookmarks, only: %i[create destroy]
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
