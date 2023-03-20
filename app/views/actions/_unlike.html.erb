@@ -1,4 +1,8 @@
-<%= link_to destroy_like_path(post), style:'text-decoration:none;', data: { turbo_method: :delete } do %>
-  <%= image_tag 'like_dog.png', size: '60x60' %>
-  <%= post.likes.count %>
+<%= turbo_frame_tag post do %>
+  <%= link_to like_path(current_user.likes.find_by(post_id: post.id)), 
+      style:'text-decoration:none;', 
+      data: { turbo_method: :delete } do %>
+    <%= image_tag 'like_dog.png', size: '60x60' %>
+    <%= post.likes.count %>
+  <% end %>
 <% end %>

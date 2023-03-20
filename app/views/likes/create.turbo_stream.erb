@@ -1,0 +1,4 @@
+<%= turbo_stream.replace @post do %>
+  <%= render partial: 'actions/unlike',
+             locals: { post: @post } %>
+<% end %>
