@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ edit update destroy]
+  before_action :set_post, only: %i[edit update destroy]
 
   def index
     posts = if(tag_name = params[:tag_name])
@@ -58,6 +58,10 @@ class PostsController < ApplicationController
 
   def bookmarks
     @bookmark_posts = current_user.bookmark_posts.includes(:user).order(created_at: :desc)
+  end
+
+  def likes
+    @like_posts = Post.where(id: current_user.likes.pluck(:post_id))
   end
 
   def search
