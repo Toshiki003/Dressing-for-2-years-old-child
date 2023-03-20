@@ -53,6 +53,9 @@ ja:
     bookmarks:
       title: 'ブックマーク一覧'
       no_result: 'ブックマーク中の投稿がありません'
+    likes:
+      title: 'いいね一覧'
+      no_result: 'いいねをした投稿がありません'
   bookmarks:
     create:
       success: 'ブックマークしました'
