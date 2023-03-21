@@ -1,7 +1,7 @@
 ja:
   defaults:
     login: 'ログイン'
-    register: '登録'
+    register: '登録する'
     logout: 'ログアウト'
     post: '投稿'
     search_word: '検索ワード'
