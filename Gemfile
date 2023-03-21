@@ -80,5 +80,9 @@ gem 'cssbundling-rails', '~> 1.1'
 
 gem "dockerfile-rails", ">= 1.2", :group => :development
 
+# 画像アップロード
 gem "activestorage", "~> 7.0"
 gem 'image_processing', '~> 1.2'
+
+# ページネーション
+gem 'kaminari'
