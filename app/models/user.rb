@@ -28,7 +28,14 @@ class User < ApplicationRecord
     panda: 5,
     bee: 6,
     whitetiger: 7,
-    stegosaurus: 8
+    tyranno: 8,
+    tanuki: 9,
+    stoat: 10,
+    pegasus: 11,
+    sanma: 12,
+    whale: 13,
+    hippopotamus: 14,
+    flog: 15
   } 
 
   enum role: {

@@ -28,7 +28,7 @@
       <% end %>
 
       <% User.avatars.keys.each do |avatar| %>
-        <%= image_tag "#{avatar}.png",class: "rounded-circle mr15", size: '90' %>
+        <%= image_tag "icon/#{avatar}.png",class: "rounded-circle mr15", size: '90' %>
       <% end %>
       <div class='text-center'>
         <%= link_to "topページ", root_path %>
