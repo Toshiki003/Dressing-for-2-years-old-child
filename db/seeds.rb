@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
+
+  30.times do |index|
+    Post.create(
+        user: User.offset(rand(User.count)).first,
+        category: Category.first,
+        title: "タイトル#{index}",
+        content: "本文#{index}"
+    )
+  end

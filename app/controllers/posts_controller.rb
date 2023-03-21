@@ -9,7 +9,7 @@ class PostsController < ApplicationController
             else
                Post.all
             end
-    @posts = posts.includes(:user).order(created_at: :desc)
+    @posts = posts.includes(:user).order(created_at: :desc).page(params[:page])
     @popular_tags = Tag.popular_tags
   end
 
