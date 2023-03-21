@@ -1,7 +1,7 @@
 ja:
   defaults:
     login: 'ログイン'
-    register: '登録'
+    register: '登録する'
     logout: 'ログアウト'
     post: '投稿'
     search_word: '検索ワード'
@@ -42,10 +42,10 @@ ja:
       success: 'ログアウトしました'
   posts:
     index:
-      title: '投稿一覧'
+      title: 'みんなの投稿を見る'
       no_result: '投稿がありません。'
     new:
-      title: '投稿作成'
+      title: '投稿する'
     show:
       title: '投稿詳細'
     edit:

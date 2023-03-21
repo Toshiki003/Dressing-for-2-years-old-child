@@ -20,15 +20,22 @@ class User < ApplicationRecord
 
 
   enum avatar: {
-    fox: 0, 
-    dog: 1, 
+    fox: 0,
+    dog: 1,
     cat: 2,
     lion: 3,
-    hourse: 4,
-    panda: 5,
-    bee: 6,
-    whitetiger: 7,
-    stegosaurus: 8
+    panda: 4,
+    bee: 5,
+    hippopotamus: 6,
+    club: 7,
+    hourse: 8,
+    raccoon: 9,
+    stoat: 10,
+    pegasus: 11,
+    elephant: 16,
+    sanma: 12,
+    whale: 13,
+    flog: 15
   } 
 
   enum role: {

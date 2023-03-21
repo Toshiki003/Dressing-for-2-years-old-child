@@ -5,7 +5,7 @@
 
       <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-success float-right' if !current_user.guest? %>
 
-      <table class="table">
+      <table class="table mt-4 mb-4">
         <%  if !current_user.guest? %>
           <tr>
             <th scope="row"><%= t(User.human_attribute_name(:email)) %></th>
@@ -18,7 +18,7 @@
         </tr>
         <tr>
           <th scope="row"><%= t(User.human_attribute_name(:avatar)) %></th>
-          <td><%= image_tag "#{current_user.avatar}.png", class: 'rounded-circle', size: '50x50' %></td>
+          <td><%= image_tag "icon/#{current_user.avatar}.png", class: 'rounded-circle', size: '100x100' %></td>
         </tr>
       </table>
     </div>

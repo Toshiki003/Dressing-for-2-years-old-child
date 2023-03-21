@@ -2,35 +2,47 @@
   <div class="row">
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1><%= t '.title' %></h1>
-      <%= form_with model: @user, local: true do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
-        <div class="form-group">
-         <%= f.label :name %>
-         <%= f.text_field :name, class: "form-control" %>
-        </div>
-        <div class="form-group">
-         <%= f.label :email %>
-         <%= f.text_field :email, class: "form-control" %>
-        </div>
-        <div class="form-group">
-         <%= f.label :password %>
-         <%= f.password_field :password, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, class: "form-control" %>
-        </div>
-        <div class="form-group mb-3">
-          <%= f.label :avatar %><p>*登録した後に変更できます</p>
-          <%= f.select :avatar,User.avatars_i18n.invert, {}, class: "form-control" %>
-        </div>
-        <%= f.submit ( t 'defaults.register'), class:'btn btn-primary' %>
-      <% end %>
+      <div class="pt-3 pb-5">
+        <%= form_with model: @user, local: true do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+          <div class="form-group mb-3">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control", placeholder: '15文字以内で入力してください' %>
+          </div>
+          <div class="form-group mb-3">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: "form-control", placeholder: 'aaa@example.comの形式で入力してください' %>
+          </div>
+          <div class="form-group mb-3">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control", placeholder: '3文字以上で入力してください' %>
+          </div>
+          <div class="form-group mb-3">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: "form-control", placeholder: '3文字以上で入力してください' %>
+          </div>
+          <div class="form-group mb-3">
+            <%= f.label :avatar %><p>*好きなアイコンを選んでください！</p>
+            <%= f.select :avatar,User.avatars_i18n.invert, {}, class: "form-control" %>
+          </div>
+          <div class="card mb-5">
+            <ul class="list-inline">
+              <% User.avatars_i18n.each do |avatar, name| %>
+                <li class="list-inline-item">
+                  <div class="text-center">
+                    <%= image_tag "icon/#{avatar}.png",class: "rounded-circle mr15", size: '90' %>
+                      <p><%= name %></p>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <%= f.submit (t 'defaults.register'), class:'btn btn-primary' %>
+        <% end %>
+      </div>
 
-      <% User.avatars.keys.each do |avatar| %>
-        <%= image_tag "#{avatar}.png",class: "rounded-circle mr15", size: '90' %>
-      <% end %>
-      <div class='text-center'>
+
+      <div class='text-center pt-5'>
         <%= link_to "topページ", root_path %>
         <%= link_to "ログインページ", login_path %>
       </div>
