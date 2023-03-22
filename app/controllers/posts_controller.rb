@@ -56,12 +56,6 @@ class PostsController < ApplicationController
     redirect_to posts_path, success: t('defaults.message.deleted', item: Post.model_name.human), status: :see_other 
   end
 
-  
-
-  def likes
-    @like_posts = Post.where(id: current_user.likes.pluck(:post_id)).page(params[:page]).per(9)
-  end
-
   def search
     @posts = @search_form.search.includes(:user).order(created_at: :desc)
   end
