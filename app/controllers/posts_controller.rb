@@ -57,11 +57,11 @@ class PostsController < ApplicationController
   end
 
   def bookmarks
-    @bookmark_posts = current_user.bookmark_posts.includes(:user).order(created_at: :desc)
+    @bookmark_posts = current_user.bookmark_posts.includes(:user).order(created_at: :desc).page(params[:page]).per(9)
   end
 
   def likes
-    @like_posts = Post.where(id: current_user.likes.pluck(:post_id))
+    @like_posts = Post.where(id: current_user.likes.pluck(:post_id)).page(params[:page]).per(9)
   end
 
   def search
