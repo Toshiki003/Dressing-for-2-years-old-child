@@ -10,6 +10,9 @@ ja:
     delete: '削除'
     password_reset: 'パスワードリセット'
     unspecified: '指定なし'
+    likes: 'いいねした投稿を見る'
+    bookmark: 'ブックマーク'
+    profile: 'プロフィール'
     message:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"
@@ -51,10 +54,10 @@ ja:
     edit:
       title: '投稿編集'
     bookmarks:
-      title: 'ブックマーク一覧'
+      title: 'ブックマーク'
       no_result: 'ブックマーク中の投稿がありません'
     likes:
-      title: 'いいね一覧'
+      title: 'いいねした投稿'
       no_result: 'いいねをした投稿がありません'
   bookmarks:
     create:

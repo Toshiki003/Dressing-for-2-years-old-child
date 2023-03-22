@@ -50,17 +50,20 @@
               <ul class="list-unstyled">
                 <li>
                   <%= link_to likes_posts_path, class:"dropdown-item" do %>
-                    <%= image_tag 'like_dog.png', size: '40x40' %>いいね一覧
+                    <%= image_tag 'like_dog.png', size: '40x40' %>
+                    <%= (t 'defaults.likes') %>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to bookmarks_posts_path, class:"dropdown-item" do %>
-                    <%= image_tag 'bookmark.png', size: '40x40' %>ブックマーク
+                    <%= image_tag 'bookmark.png', size: '40x40' %>
+                    <%= (t 'defaults.bookmark') %>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to profile_path, class:"dropdown-item" do %>
-                    <%= image_tag 'profile_transparent.png', size: '40x40' %>プロフィール
+                    <%= image_tag 'profile_transparent.png', size: '40x40' %>
+                    <%= (t 'defaults.profile') %>
                   <% end %>
                 </li>
               </ul>
