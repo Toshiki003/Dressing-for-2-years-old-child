@@ -42,7 +42,7 @@ RSpec.describe "Posts", type: :system do
 
     context 'ブックマーク一覧ページ' do
       it 'ブックマーク一覧ページへのアクセスが失敗する' do
-        visit bookmarks_posts_path
+        visit bookmarks_path
         expect(page).to have_content 'ログインしてください'
         expect(current_path).to eq login_path
       end
