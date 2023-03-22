@@ -14,13 +14,11 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, only: %i[create destroy], shallow: true
     collection do
-      get :bookmarks
-      get :likes
       get :search
     end
   end
-  resources :likes, only: %i[create destroy]
-  resources :bookmarks, only: %i[create destroy]
+  resources :likes, only: %i[index create destroy]
+  resources :bookmarks, only: %i[index create destroy]
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
 
