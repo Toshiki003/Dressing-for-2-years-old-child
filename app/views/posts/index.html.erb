@@ -16,8 +16,11 @@
             <p><%= t('.no_result') %></p>
           <% end %> 
         </div> 
-        <%= paginate @posts, theme: 'bootstrap-5' %>
       </div>
     </div>
+
+  </div>
+  <div class="d-flex justify-content-center pt-4">
+    <%= paginate @posts, theme: 'bootstrap-5' %>
   </div>
 </nav>
