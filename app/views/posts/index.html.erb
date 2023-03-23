@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "post-list" do %>
+<%= turbo_frame_tag "post-list", data: { turbo_action: :advance } do %>
   <nav class="container pt-5 pb-5">
     <div class="container-fluid">
     <!-- 人気のタグ3つを表示 -->
