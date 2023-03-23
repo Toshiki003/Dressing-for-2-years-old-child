@@ -28,7 +28,7 @@
                 </li>
               <% end %>
                 <h3><%= @post.title %></h3>
-                <%= simple_format(@post.content) %>
+                <%= raw Rinku.auto_link(simple_format(@post.content), :urls, 'target="_blank" rel="noopener noreferrer"') %>
             </div>
           </div>
           <div class="card-footer">

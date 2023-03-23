@@ -87,3 +87,6 @@ gem 'image_processing', '~> 1.2'
 # ページネーション
 gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
+
+# auto_link
+gem 'rinku'
