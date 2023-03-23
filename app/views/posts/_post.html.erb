@@ -37,7 +37,7 @@
           <div class="divider"></div>
           <div class="card-body">
          
-            <h5 class="card-text"><%= simple_format(post.content.truncate(50)) %></h5>
+            <h5 class="card-text"><%= raw Rinku.auto_link(simple_format(post.content.truncate(50)), :urls, 'target="_blank" rel="noopener noreferrer"') %></h5>
           </div>
           <div class="card-footer">
             <ul class="list-inline">
