@@ -92,4 +92,4 @@ gem 'bootstrap5-kaminari-views'
 gem 'rinku'
 
 # OGP
-gem 'meta_tags'
+gem 'meta-tags'

@@ -1,5 +1,5 @@
 # This migration comes from meta_tags_railtie (originally 20140114154410)
-class CreateMetaTagsList < ActiveRecord::Migration
+class CreateMetaTagsList < ActiveRecord::Migration[7.0]
   def change
     create_table :meta_tags_lists do |t|
       t.string :name
