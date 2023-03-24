@@ -90,3 +90,6 @@ gem 'bootstrap5-kaminari-views'
 
 # auto_link
 gem 'rinku'
+
+# OGP
+gem 'meta_tags'
