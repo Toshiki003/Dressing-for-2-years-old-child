@@ -235,7 +235,7 @@ RSpec.describe "Posts", type: :system do
         end
       end
       context '投稿詳細ページ' do
-        it '投稿の削除ボタンを押した場合、削除される' do
+        fit '投稿の削除ボタンを押した場合、削除される' do
           visit post_path(post)
           expect( Post.where(id: post.id).count ).to eq 1
           find("#button-delete-#{post.id}").click
