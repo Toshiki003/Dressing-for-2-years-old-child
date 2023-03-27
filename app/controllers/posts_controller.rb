@@ -53,7 +53,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy!
-    redirect_to posts_path, success: t('defaults.message.deleted', item: Post.model_name.human), status: :see_other 
+    flash.now[:success] = t('defaults.message.deleted', item: Post.model_name.human)
   end
 
   def search
