@@ -15,13 +15,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post.build_category
     @default_tag = "#育児あるある"
   end
 
   def create
     @post = current_user.posts.build(post_params)
-    @post.category_id = params.dig(:post, :category, :category_id) # accepts_nested_attributes_forメソッドで保存できるまでの応急処置
+    binding.irb
     if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
       redirect_to @post, success: t('defaults.message.created', item: Post.model_name.human)
     else
@@ -42,7 +41,6 @@ class PostsController < ApplicationController
 
   def update
     @post.assign_attributes(post_params)
-    @post.category_id = params.dig(:post, :category, :category_id) # accepts_nested_attributes_forメソッドで保存できるまでの応急処置
     if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
       redirect_to @post, success: t('defaults.message.updated', item: Post.model_name.human)
     else
@@ -63,7 +61,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :embed_youtube, :image, categories_attributes: [:id])
+    params.require(:post).permit(:title, :content, :embed_youtube, :image, :category_id)
   end
 
   def set_post
