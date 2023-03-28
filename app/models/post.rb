@@ -28,19 +28,14 @@ class Post < ApplicationRecord
     end
   end
 
-  def save_with_tags(tag_names:)
+  #タグ保存失敗時の例外処理
+  def save
     ActiveRecord::Base.transaction do
-      self.tags = tag_names.map { |name| Tag.find_or_initialize_by(name: name.strip) }
       save!
     end
     true
-  rescue StandardError 
+  rescue StandardError
     false
   end
-  
-  def tag_names
-    tags.map(&:name).join(',')
-  end
 
-  
 end

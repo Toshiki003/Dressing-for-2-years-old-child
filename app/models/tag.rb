@@ -9,4 +9,8 @@ class Tag < ApplicationRecord
     Tag.find(PostTag.group(:tag_id).count.sort_by{ |a| a[1]}.reverse.take(3).map{|b| b[0]})
     
   end
+  #タグの文字列をタグの配列に変換
+  def self.str2tags(tag_names)
+    tag_names.split('、').uniq.map { |tag| Tag.find_or_initialize_by(name: tag.strip) }
+  end
 end

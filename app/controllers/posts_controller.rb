@@ -15,13 +15,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @default_tag = "#育児あるある"
   end
 
   def create
     @post = current_user.posts.build(post_params)
-    binding.irb
-    if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
+    @post.tags = Tag.str2tags(params.dig(:post, :tag_names)) #Tagの配列を作成
+    if @post.save
       redirect_to @post, success: t('defaults.message.created', item: Post.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_created', item: Post.model_name.human)
@@ -35,9 +34,7 @@ class PostsController < ApplicationController
     @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
-  def edit
-    @default_tag = "#育児あるある"
-  end
+  def edit; end
 
   def update
     @post.assign_attributes(post_params)
