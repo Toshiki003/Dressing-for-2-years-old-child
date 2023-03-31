@@ -23,7 +23,7 @@
           </div>
           <div class="form-group mb-3">
             <%= f.label :avatar %><p>*好きなアイコンを選んでください！</p>
-            <%= f.select :avatar,User.avatars_i18n.invert, {}, class: "form-control" %>
+            <%= f.select :avatar,User.avatars_i18n.invert, {include_blank: true},{ data: {controller: 'slim', slim_target: 'field' } } %>
           </div>
           <div class="card mb-5">
             <ul class="list-inline">
