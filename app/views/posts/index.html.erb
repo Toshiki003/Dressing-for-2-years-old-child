@@ -1,156 +1,46 @@
 <%= turbo_frame_tag "post-list", data: { turbo_action: :advance } do %>
-  <nav class="container pt-5 pb-5">
-    <div class="container-fluid">
 
-      <!-- post一覧-->
-      <div class="row">
-        <div class="col-12">
-          <div class="row">
-            <% if @posts.present? %>
-              <%= render @posts %>
-            <% else %>
-              <p><%= t('.no_result') %></p>
-            <% end %> 
-          </div> 
-        </div>
-      </div>
 
-    </div>
-    <div class="d-flex justify-content-center pt-4">
-      <%= paginate @posts, theme: 'bootstrap-5' %>
-    </div>
-  </nav>
-<% end %>
 
   <div class="container py-5">
-
+    <!-- post一覧-->
     <div class="row">
 
       <div class="col-12 col-lg-8">
-
-        <div class="post-card" style="background-color: #ffffc2;">
-          <div class="card-body">
-            <h5 class="card-title">タイトル1</h5>
-            <p class="card-text">本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1本文1</p>
-            <div>
-              <img class="card-img" src="https://dummyimage.com/60x60/000/fff" alt="画像1">
-              <span class="card-category">カテゴリ1</span>
-              <span class="card-date">2023年3月31日</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post-card">
-          <div class="card-body">
-            <h5 class="card-title">タイトル2</h5>
-            <p class="card-text">本文2</p>
-            <div>
-              <img class="card-img" src="https://dummyimage.com/60x60/000/fff" alt="画像2">
-              <span
-              class="card-category">カテゴリ2</span>
-              <span class="card-date">2023年3月30日</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post-card">
-          <div class="card-body">
-            <h5 class="card-title">タイトル3</h5>
-            <p class="card-text">本文3</p>
-            <div>
-              <img class="card-img" src="https://dummyimage.com/60x60/000/fff" alt="画像3">
-              <span class="card-category">カテゴリ3</span>
-              <span class="card-date">2023年3月29日</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post-card">
-          <div class="card-body">
-            <h5 class="card-title">タイトル4</h5>
-            <p class="card-text">本文4</p>
-            <div>
-              <img class="card-img" src="https://dummyimage.com/60x60/000/fff" alt="画像4">
-              <span class="card-category">カテゴリ4</span>
-              <span class="card-date">2023年3月28日</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post-card">
-          <div class="card-body">
-            <h5 class="card-title">タイトル5</h5>
-            <p class="card-text">本文5</p>
-            <div>
-              <img class="card-img" src="https://dummyimage.com/60x60/000/fff" alt="画像5">
-              <span class="card-category">カテゴリ5</span>
-              <span class="card-date">2023年3月27日</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post-card">
-          <div class="card-body">
-            <h5 class="card-title">タイトル6</h5>
-            <p class="card-text">本文6</p>
-            <div>
-              <img class="card-img" src="https://dummyimage.com/60x60/000/fff" alt="画像6">
-              <span class="card-category">カテゴリ6</span>
-              <span class="card-date">2023年3月26日</span>
-            </div>
-          </div>
-        </div>
-
+        <% if @posts.present? %>
+          <%= render @posts %>
+        <% else %>
+          <p><%= t('.no_result') %></p>
+        <% end %> 
       </div>
 
-      <div class="col-12 col-lg-4">
-
-        <div class="post-form-card">
-          <div class="card-body">
-            <form>
-              <div class="mb-3">
-                <label for="post-title" class="form-label">タイトル</label>
-                <input type="text" class="form-control" id="post-title">
+      
+        <div class="col-12 col-lg-4">
+          <div class="sticky-top">
+            <div class="post-form-card">
+              <div class="card-body m-3">
+                <%= render partial: 'form', locals: { post: @post } %>
               </div>
-              <div class="mb-3">
-                <label for="post-text" class="form-label">本文</label>
-                <textarea class="form-control" id="post-text" rows="3"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="post-image" class="form-label">画像</label>
-                <input type="file" class="form-control" id="post-image">
-              </div>
-              <div class="mb-3">
-                <label for="post-category" class="form-label">カテゴリ</label>
-                <select class="form-select" id="post-category">
-                <option selected>選択してください</option>
-                <option value="1">カテゴリ1</option>
-                <option value="2">カテゴリ2</option>
-                <option value="3">カテゴリ3</option>
-              </select>
             </div>
-            <div class="mb-3">
-              <label for="post-tags" class="form-label">タグ</label>
-              <input type="text" class="form-control" id="post-tags">
+            <div class="d-flex justify-content-center">
+              <%= paginate @posts, theme: 'bootstrap-5' %>
             </div>
-            <button type="submit" class="btn btn-primary">投稿する</button>
-          </form>
-        </div>
-      </div>
-      <div class="card my-4">
-        <div class="card-header bg-secondary text-white">
-          人気のタグ
-        </div>
-        <div class="card-body">
-          <ul class="list-unstyled mb-0">
-            <!-- 人気のタグ3つを表示 -->
-            <% @popular_tags.each do | tag |  %>
-              <li><%= link_to tag.name, posts_path(tag_name: tag.name), class: 'badge bg-primary text-white me-1' %></li>
-            <% end %>
-          </ul>
+            <div class="card my-4">
+              <div class="card-header bg-secondary text-white">
+                人気のタグ
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mb-0">
+                  <!-- 人気のタグ3つを表示 -->
+                  <% @popular_tags.each do | tag |  %>
+                    <li><%= link_to tag.name, posts_path(tag_name: tag.name), class: 'badge bg-primary text-white me-1' %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
-
+<% end %>
