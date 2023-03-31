@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    @post.tags = Tag.str2tags(params.dig(:post, :tag_names)) #Tagの配列を作成
+    @post.tags = Tag.str2tags(params.dig(:post, :tag_names)) # タグの文字列をタグの配列に変換
     if @post.save
       redirect_to @post, success: t('defaults.message.created', item: Post.model_name.human)
     else
@@ -38,7 +38,8 @@ class PostsController < ApplicationController
 
   def update
     @post.assign_attributes(post_params)
-    if @post.save_with_tags(tag_names: params.dig(:post, :tag_names).split(',').uniq)
+    @post.tags = Tag.str2tags(params.dig(:post, :tag_names)) # タグの文字列をタグの配列に変換
+    if @post.update(post_params)
       redirect_to @post, success: t('defaults.message.updated', item: Post.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_updated', item: Post.model_name.human)
