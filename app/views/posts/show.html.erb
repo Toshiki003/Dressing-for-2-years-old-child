@@ -52,6 +52,11 @@
                   <%= render @post.tags %>
                 </li>
                 <li class="list-inline-item"><%= l @post.created_at, format: :short %></li>
+                <li class="list-inline-item float-end">
+                  <%= link_to "https://twitter.com/intent/tweet?url=https://og.nullnull.dev/site/29da6d62-f206-afb0-3ceb-0f702c1f4abf&text=2歳児の【#{@post.category.name}】を楽しくする工夫をシェアしました！%0Aタイトルは「#{@post.title}」です！%0A%23育児あるある#{@post.hash_tags}%0A", target: '_blank' do %>
+                    <i class="fab fa-twitter fa-lg"></i>
+                  <% end %>
+                </li>
               </ul>
             
           </div>
