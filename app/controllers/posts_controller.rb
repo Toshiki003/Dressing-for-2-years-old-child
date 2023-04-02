@@ -35,7 +35,9 @@ class PostsController < ApplicationController
     @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
-  def edit; end
+  def edit
+    @tags = @post.tags.pluck(:name).join(',')
+  end
 
   def update
     @post.assign_attributes(post_params)

@@ -11,6 +11,6 @@ class Tag < ApplicationRecord
   end
   #タグの文字列をタグの配列に変換
   def self.str2tags(tag_names)
-    tag_names.split('、').uniq.map { |tag| Tag.find_or_initialize_by(name: tag.strip) }
+    tag_names.split(',').uniq.map { |tag| Tag.find_or_initialize_by(name: tag.strip) }
   end
 end
