@@ -26,7 +26,9 @@
         </li>
         <li class="list-inline-item">
           <p>カテゴリー</p>
-          <%= render partial: 'categories/category', locals: { post: post } %>
+          <div data-turbo="false">
+            <%= render partial: 'categories/category', locals: { post: post } %>
+          </div>
         </li>
         <li class="list-inline-item">
           <%= image_tag "icon/#{post.user.avatar}.png", size: '40x40' %>
@@ -55,7 +57,7 @@
           <% end %>  
         </li>
       </ul>
-      <div>
+      <div data-turbo="false">
         <%= render post.tags %>
       </div>
     </div>
