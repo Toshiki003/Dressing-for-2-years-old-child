@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     @post.tags = Tag.str2tags(params.dig(:post, :tag_names)) # タグの文字列をタグの配列に変換
     if @post.save
-      redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
+      flash.now[:success] = t('defaults.message.created', item: Post.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_created', item: Post.model_name.human)
       render :index, status: :unprocessable_entity

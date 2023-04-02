@@ -1,61 +1,63 @@
-        <div class="post-card shadow" style="background-color: #ffffc2;">
-          <div class="card-body">
-            <h5 class="card-header" style="background-color: #ffffc2;">
-              <%= link_to post.title, post_path(post) %>
-              <span class="card-date"><%= l post.created_at, format: :short %></span>
-            </h5>            
-            <p class="card-text"><%= raw Rinku.auto_link(simple_format(post.content.truncate(100)), :urls, 'target="_blank" rel="noopener noreferrer"') %></p>          
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <div class="card-img">
-                  <% if post.image.attached? %>
-                    <%= link_to post_path(post) do %>
-                      <%= image_tag post.image.variant(resize_to_limit: [130, 130]) %>
-                    <% end %>
-                  <% elsif post.embed_youtube? %>
-                    <div class="youtube">
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= "#{post.split_id_from_youtube_url}" %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                  <% else %>
-                    <%= link_to post_path(post) do %>
-                      <%= image_tag "#{post.category.name}.png", class: 'card-img', size: '68x120' %>
-                    <% end %>
-                  <% end %>
-                </div>
-              </li>
-              <li class="list-inline-item">
-                <p>カテゴリー</p>
-                <%= render partial: 'categories/category', locals: { post: post } %>
-              </li>
-              <li class="list-inline-item">
-                <%= image_tag "icon/#{post.user.avatar}.png", size: '40x40' %>
-              </li>
-              <li class="list-inline-item">
-                <p>投稿ユーザー</p>
-                <p><strong><%= post.user.name %></strong></p>
-              </li>
-              <% if logged_in? %>
-                <li class="list-inline-item">
-                  <% if current_user.own?(post) %>
-                    <%= render partial: 'posts/crud_menus',locals: { post: post } %>
-                  <% else %>
-                    <%= render 'actions/like_button', { post: post } %>
-                    <%= render 'actions/bookmark_button', { post: post } %>
-                  <% end %>
-                </li>
+<%= turbo_frame_tag post do %>
+  <div class="post-card shadow" style="background-color: #ffffc2;">
+    <div class="card-body">
+      <h5 class="card-header" style="background-color: #ffffc2;">
+        <%= link_to post.title, post_path(post) %>
+        <span class="card-date"><%= l post.created_at, format: :short %></span>
+      </h5>            
+      <p class="card-text"><%= raw Rinku.auto_link(simple_format(post.content.truncate(100)), :urls, 'target="_blank" rel="noopener noreferrer"') %></p>          
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <div class="card-img">
+            <% if post.image.attached? %>
+              <%= link_to post_path(post) do %>
+                <%= image_tag post.image.variant(resize_to_limit: [130, 130]) %>
               <% end %>
-              <li class="list-inline-item">
-                <%= link_to post_path(post), style:'text-decoration:none;'  do %>
-                  <% if post.comments.present? %>
-                    <i class="fa-regular fa-comment-dots fa-lg"></i> <%= post.comments.count %>
-                  <% else %>
-                    <i class="fa-regular fa-comment fa-lg"></i> <%= post.comments.count %>
-                  <% end %>
-                <% end %>  
-              </li>
-            </ul>
-            <div>
-              <%= render post.tags %>
-            </div>
+            <% elsif post.embed_youtube? %>
+              <div class="youtube">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= "#{post.split_id_from_youtube_url}" %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            <% else %>
+              <%= link_to post_path(post) do %>
+                <%= image_tag "#{post.category.name}.png", class: 'card-img', size: '68x120' %>
+              <% end %>
+            <% end %>
           </div>
-        </div>
+        </li>
+        <li class="list-inline-item">
+          <p>カテゴリー</p>
+          <%= render partial: 'categories/category', locals: { post: post } %>
+        </li>
+        <li class="list-inline-item">
+          <%= image_tag "icon/#{post.user.avatar}.png", size: '40x40' %>
+        </li>
+        <li class="list-inline-item">
+          <p>投稿ユーザー</p>
+          <p><strong><%= post.user.name %></strong></p>
+        </li>
+        <% if logged_in? %>
+          <li class="list-inline-item">
+            <% if current_user.own?(post) %>
+              <%= render partial: 'posts/crud_menus',locals: { post: post } %>
+            <% else %>
+              <%= render 'actions/like_button', { post: post } %>
+              <%= render 'actions/bookmark_button', { post: post } %>
+            <% end %>
+          </li>
+        <% end %>
+        <li class="list-inline-item">
+          <%= link_to post_path(post), style:'text-decoration:none;'  do %>
+            <% if post.comments.present? %>
+              <i class="fa-regular fa-comment-dots fa-lg"></i> <%= post.comments.count %>
+            <% else %>
+              <i class="fa-regular fa-comment fa-lg"></i> <%= post.comments.count %>
+            <% end %>
+          <% end %>  
+        </li>
+      </ul>
+      <div>
+        <%= render post.tags %>
+      </div>
+    </div>
+  </div>
+<% end %>

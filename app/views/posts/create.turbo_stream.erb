@@ -1,0 +1,10 @@
+<%= turbo_stream.prepend "post-list", @post %>
+
+<%= turbo_stream.replace "post-form" do %>
+  <%= form_with model: Post.new do |f| %>
+    <%# form内容を初期化 %>
+    <% @post = Post.new %> 
+    <%= render partial: "form", locals: { post: @post } %>
+  <% end %>
+<% end %>
+<%= turbo_stream_flash %>

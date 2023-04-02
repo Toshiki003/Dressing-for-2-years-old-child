@@ -1,4 +1,5 @@
-<%= turbo_frame_tag "post-list", data: { turbo_action: :advance } do %>
+<!-- turbo_frameリクエスト時のURL更新 -->
+
 
 
 
@@ -7,11 +8,13 @@
     <div class="row">
 
       <div class="col-12 col-lg-8">
-        <% if @posts.present? %>
-          <%= render @posts %>
-        <% else %>
-          <p><%= t('.no_result') %></p>
-        <% end %> 
+        <%= turbo_frame_tag "post-list" %>
+          <% if @posts.present? %>
+            <%= render @posts %>
+          <% else %>
+            <p><%= t('.no_result') %></p>
+          <% end %> 
+
       </div>
 
       
@@ -19,7 +22,10 @@
           <div class="sticky-top">
             <div class="post-form-card">
               <div class="card-body m-3">
-                <%= render partial: 'form', locals: { post: @post } %>
+                <!-- indexページからの送信時turboはfalseにする -->
+                <div id="post-form">
+                  <%= render partial: 'form', locals: { post: @post } %>
+                </div>
               </div>
             </div>
             <div class="d-flex justify-content-center">
@@ -43,4 +49,3 @@
       </div>
     </div>
   </div>
-<% end %>
