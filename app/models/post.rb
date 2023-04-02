@@ -38,4 +38,14 @@ class Post < ApplicationRecord
     false
   end
 
+  # twitterシェアボタン用のハッシュタグメソッドを定義
+  def hash_tags
+    return if self.tags.blank?
+    hash_tags = ""
+    self.tags.pluck(:name).each do |tag|
+      hash_tag = "%0A%23#{tag}"
+      hash_tags << hash_tag
+    end
+    return hash_tags
+  end
 end
