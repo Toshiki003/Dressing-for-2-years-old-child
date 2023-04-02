@@ -1,4 +1,4 @@
-<%= turbo_stream.replace @post do %>
+<%= turbo_stream.replace dom_id(@post, :like_post) do %>
   <%= render partial: 'actions/unlike',
              locals: { post: @post } %>
 <% end %>

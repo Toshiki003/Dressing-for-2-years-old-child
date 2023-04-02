@@ -1,4 +1,4 @@
-<%= turbo_frame_tag post do %>
+<%= turbo_frame_tag dom_id(post, :like_post) do %>
   <%= link_to like_path(current_user.likes.find_by(post_id: post.id)), 
       style:'text-decoration:none;', 
       data: { turbo_method: :delete } do %>

@@ -1,28 +1,51 @@
-<%= turbo_frame_tag "post-list", data: { turbo_action: :advance } do %>
-  <nav class="container pt-5 pb-5">
-    <div class="container-fluid">
-    <!-- 人気のタグ3つを表示 -->
-      <div class="">
-        <% @popular_tags.each do | tag |  %>
-          <%= tag.name %>
-        <% end %>
-      </div>
-      <!-- post一覧-->
-      <div class="row">
-        <div class="col-12">
-          <div class="row">
-            <% if @posts.present? %>
-              <%= render @posts %>
-            <% else %>
-              <p><%= t('.no_result') %></p>
-            <% end %> 
-          </div> 
-        </div>
+<!-- turbo_frameリクエスト時のURL更新 -->
+
+
+
+
+  <div class="container py-5">
+    <!-- post一覧-->
+    <div class="row">
+
+      <div class="col-12 col-lg-8">
+        <%= turbo_frame_tag "post-list" %>
+          <% if @posts.present? %>
+            <%= render @posts %>
+          <% else %>
+            <p><%= t('.no_result') %></p>
+          <% end %> 
+
       </div>
 
+      
+        <div class="col-12 col-lg-4">
+          <div class="sticky-top">
+            <div class="post-form-card">
+              <div class="card-body m-3">
+                <!-- indexページからの送信時turboはfalseにする -->
+                <div id="post-form">
+                  <%= render partial: 'form', locals: { post: @post } %>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <%= paginate @posts, theme: 'bootstrap-5' %>
+            </div>
+            <div class="card my-4">
+              <div class="card-header bg-secondary text-white">
+                人気のタグ
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mb-0">
+                  <!-- 人気のタグ3つを表示 -->
+                  <% @popular_tags.each do | tag |  %>
+                    <li><%= link_to tag.name, posts_path(tag_name: tag.name), class: 'badge bg-primary text-white me-1' %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="d-flex justify-content-center pt-4">
-      <%= paginate @posts, theme: 'bootstrap-5' %>
-    </div>
-  </nav>
-<% end %>
+  </div>
