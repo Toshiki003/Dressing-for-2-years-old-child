@@ -32,14 +32,15 @@
               <%= paginate @posts, theme: 'bootstrap-5' %>
             </div>
             <div class="card my-4">
-              <div class="card-header bg-secondary text-white">
-                人気のタグ
+              <div class="card-header bg-primary text-white">
+                人気のタグ🎉
               </div>
               <div class="card-body">
                 <ul class="list-unstyled mb-0">
+                  <p>そのタグがついた投稿が表示されます。</p>
                   <!-- 人気のタグ3つを表示 -->
                   <% @popular_tags.each do | tag |  %>
-                    <li><%= link_to tag.name, posts_path(tag_name: tag.name), class: 'badge bg-primary text-white me-1' %></li>
+                    <li><h5><%= link_to tag.name, posts_path(tag_name: tag.name), class: 'badge bg-primary text-white me-1' %></h5></li>
                   <% end %>
                 </ul>
               </div>
