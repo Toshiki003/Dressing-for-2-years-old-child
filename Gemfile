@@ -94,3 +94,6 @@ gem 'rinku'
 
 # OGP
 gem 'meta-tags'
+
+# スクレイピング処理
+gem 'nokogiri'
