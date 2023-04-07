@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
 
+  resources :articles, only: %i[index]
 end
