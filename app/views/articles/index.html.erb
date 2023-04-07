@@ -1,9 +1,19 @@
 <div class="container-fluid">
+  <div class="text-center pt-5">
+    <h1><%= t('.title') %></h1>
+    <p>毎日0時更新</p>
+  </div>
   <div class="row pt-5">
     
       <%= render @articles %>
+  </div>
 
   <!-- 過去に配信したニュース -->
 
+  <div class='text-center'>
+    <p>記事配信元：</p>
+    <%= link_to 'BIGLOBEニュース', 'https://news.biglobe.ne.jp/' %><br>
+    <%= link_to '財経新聞', 'https://www.zaikei.co.jp/' %>
   </div>
+    
 </div>

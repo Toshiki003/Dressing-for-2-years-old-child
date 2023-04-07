@@ -80,6 +80,9 @@ ja:
     update:
       success: 'パスワードを変更しました'
       fail: 'パスワードの変更に失敗しました'
+  articles:
+    index: 
+      title: '子育てニュース'
   
   # admin:
   #   user_sessions:
