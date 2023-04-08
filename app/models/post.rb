@@ -17,7 +17,6 @@ class Post < ApplicationRecord
   scope :content_contain, ->(word) { where('posts.content LIKE ?', "%#{word}%") }
   scope :with_category, ->(category_name) { joins(:category).where(categories: { name: category_name }) }
   scope :new_arrivals, -> { Post.order(created_at: :desc).limit(3) }
-
   scope :most_liked, -> { joins(:likes).group(:id).order('COUNT(likes.id) DESC') }
   scope :most_bookmarked, lambda {
     select('posts.*, COUNT(bookmarks.id) AS bookmarks_count')

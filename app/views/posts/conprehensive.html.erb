@@ -1,49 +1,49 @@
 <!-- turbo_frameリクエスト時のURL更新 -->
-  <div class="container py-5">
-    <!-- post一覧-->
-    <div class="row">
-      <div class="col-12 col-lg-8">
-        <%= render 'shared/nav_tabs' %>
-        
-        <%= turbo_frame_tag "post-list" %>
-          <% if @posts.present? %>
-            <%= render @posts %>
-          <% else %>
-            <p><%= t('.no_result') %></p>
-          <% end %> 
-          
-      </div>
+<div class="container py-5">
+  <!-- post一覧-->
+  <div class="row">
+    <div class="col-12 col-lg-8">
+      <%= render 'shared/nav_tabs' %>
+    
+      <%= turbo_frame_tag "post-list" do %>
+        <% if @posts.present? %>
+          <%= render @posts %>
+        <% else %>
+          <p><%= t('.no_result') %></p>
+        <% end %> 
+      <% end %>
+    </div>
 
-      
-        <div class="col-12 col-lg-4">
-          <div class="sticky-top">
-            <div class="post-form-card">
-              <div class="card-body m-3">
-                <!-- indexページからの送信時turboはfalseにする -->
-                <div id="post-form">
-                  <%= render partial: 'form', locals: { post: @post } %>
-                </div>
+    <!-- サイドのフォームと人気のタグ-->
+      <div class="col-12 col-lg-4">
+        <div class="sticky-top">
+          <div class="post-form-card">
+            <div class="card-body m-3">
+              <!-- indexページからの送信時turboはfalseにする -->
+              <div id="post-form">
+                <%= render partial: 'form', locals: { post: @post } %>
               </div>
             </div>
-            <div class="d-flex justify-content-center">
-              <%= paginate @posts, theme: 'bootstrap-5' %>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= paginate @posts, theme: 'bootstrap-5' %>
+          </div>
+          <div class="card my-4">
+            <div class="card-header bg-primary text-white">
+              人気のタグ🎉
             </div>
-            <div class="card my-4">
-              <div class="card-header bg-primary text-white">
-                人気のタグ🎉
-              </div>
-              <div class="card-body">
-                <ul class="list-unstyled mb-0">
-                  <p>そのタグがついた投稿が表示されます。</p>
-                  <!-- 人気のタグ3つを表示 -->
-                  <% @popular_tags.each do | tag |  %>
-                    <li><h5><%= link_to tag.name, posts_path(tag_name: tag.name), class: 'badge bg-primary text-white me-1' %></h5></li>
-                  <% end %>
-                </ul>
-              </div>
+            <div class="card-body">
+              <ul class="list-unstyled mb-0">
+                <p>そのタグがついた投稿が表示されます。</p>
+                <!-- 人気のタグ3つを表示 -->
+                <% @popular_tags.each do | tag |  %>
+                  <li><h5><%= link_to tag.name, posts_path(tag_name: tag.name), class: 'badge bg-primary text-white me-1' %></h5></li>
+                <% end %>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
