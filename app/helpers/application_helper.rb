@@ -30,4 +30,9 @@ module ApplicationHelper
   def turbo_stream_flash
     turbo_stream.update 'flash', partial: 'shared/flash_message'
   end
+
+  # アクションごとにビューのactiveを切り替える
+  def active_if(controller, action)
+    "#{controller_path}/#{action}" == "#{controller}/#{action_name}" ? 'active' : ''
+  end
 end

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy]
+  before_action :set_popular_tags, only: %i[index most_liked most_bookmarked conprehensive]
 
   def index
     posts = if(tag_name = params[:tag_name])
@@ -10,7 +11,6 @@ class PostsController < ApplicationController
                Post.all
             end
     @posts = posts.includes(:user).order(created_at: :desc).page(params[:page]).per(9)
-    @popular_tags = Tag.popular_tags
     @post = Post.new
   end
 
@@ -59,6 +59,21 @@ class PostsController < ApplicationController
     @posts = @search_form.search.includes(:user).order(created_at: :desc)
   end
 
+  def most_liked
+    @posts = Post.most_liked.page(params[:page]).per(9)
+    @post = Post.new
+  end
+
+  def most_bookmarked
+    @posts = Post.most_bookmarked.includes(:user).page(params[:page]).per(9)
+    @post = Post.new
+  end
+
+  def conprehensive
+    @posts = Post.conprehensive.includes(:user).page(params[:page]).per(9)
+    @post = Post.new
+  end
+
   private
 
   def post_params
@@ -71,5 +86,9 @@ class PostsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       redirect_to posts_path
     end
+  end
+
+  def set_popular_tags
+    @popular_tags = Tag.popular_tags
   end
 end

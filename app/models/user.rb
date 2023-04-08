@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_many :bookmark_posts, through: :bookmarks, source: :post
 
   has_many :comments, dependent: :destroy
+  
 
 
   enum avatar: {

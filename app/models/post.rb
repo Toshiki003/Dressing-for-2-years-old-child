@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :comments, dependent: :destroy
   has_one_attached :image
+  has_many :bookmarks, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :content, presence: true, length: { maximum: 65_535 }
@@ -16,6 +17,22 @@ class Post < ApplicationRecord
   scope :content_contain, ->(word) { where('posts.content LIKE ?', "%#{word}%") }
   scope :with_category, ->(category_name) { joins(:category).where(categories: { name: category_name }) }
   scope :new_arrivals, -> { Post.order(created_at: :desc).limit(3) }
+
+  scope :most_liked, -> { joins(:likes).group(:id).order('COUNT(likes.id) DESC') }
+  scope :most_bookmarked, -> { select('posts.*, COUNT(bookmarks.id) AS bookmarks_count')
+    .joins(:bookmarks)
+    .group('posts.id')
+    .order('bookmarks_count DESC')
+  }
+  scope :conprehensive, -> {
+    select('posts.*, (COUNT(likes.id) * 5 + COUNT(bookmarks.id) * 10 + COUNT(comments.id) * 3) AS total_points')
+    .joins('LEFT JOIN likes ON likes.post_id = posts.id')
+    .joins('LEFT JOIN bookmarks ON bookmarks.post_id = posts.id')
+    .joins('LEFT JOIN comments ON comments.post_id = posts.id')
+    .group('posts.id')
+    .order('total_points DESC')
+  }
+
 
   def split_id_from_youtube_url
     # YoutubeならIDのみ抽出
