@@ -3,12 +3,12 @@ class PostsController < ApplicationController
   before_action :set_popular_tags, only: %i[index most_liked most_bookmarked conprehensive]
 
   def index
-    posts = if(tag_name = params[:tag_name])
+    posts = if (tag_name = params[:tag_name])
               Post.with_tag(tag_name)
             elsif (category_name = params[:category_name])
               Post.with_category(category_name)
             else
-               Post.all
+              Post.all
             end
     @posts = posts.includes(:user).order(created_at: :desc).page(params[:page]).per(9)
     @post = Post.new
@@ -81,11 +81,9 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    begin
-      @post = current_user.posts.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      redirect_to posts_path
-    end
+    @post = current_user.posts.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to posts_path
   end
 
   def set_popular_tags

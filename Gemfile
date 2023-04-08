@@ -10,7 +10,7 @@ gem 'rails', '~> 7.0.4'
 gem 'sprockets-rails'
 
 # Use mysql as the database for Active Record
-gem "pg", "~> 1.1"
+gem 'pg', '~> 1.1'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
@@ -44,8 +44,8 @@ gem 'rails-i18n'
 gem 'annotate'
 
 # 環境変数管理
-gem 'dotenv-rails'
 gem 'config'
+gem 'dotenv-rails'
 
 # Password Authentication
 gem 'sorcery'
@@ -62,8 +62,8 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'rspec-rails'
-  gem 'webdrivers'
   gem 'simplecov', require: false
+  gem 'webdrivers'
 end
 
 group :development do
@@ -79,15 +79,15 @@ end
 
 gem 'cssbundling-rails', '~> 1.1'
 
-gem "dockerfile-rails", ">= 1.2", :group => :development
+gem 'dockerfile-rails', '>= 1.2', group: :development
 
 # 画像アップロード
-gem "activestorage", "~> 7.0"
+gem 'activestorage', '~> 7.0'
 gem 'image_processing', '~> 1.2'
 
 # ページネーション
-gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
+gem 'kaminari'
 
 # auto_link
 gem 'rinku'

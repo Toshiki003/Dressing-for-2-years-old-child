@@ -16,7 +16,7 @@ RSpec.describe 'UserSessions', type: :system do
 
       it 'ログアウトができる' do
         login_as(user)
-        find(".avatar.avatar-md").click
+        find('.avatar.avatar-md').click
         click_link 'ログアウト'
         expect(page).to have_content 'ログアウトしました'
       end

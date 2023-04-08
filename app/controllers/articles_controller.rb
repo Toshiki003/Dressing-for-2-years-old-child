@@ -1,10 +1,9 @@
 class ArticlesController < ApplicationController
-
   require 'open-uri'
   require 'nokogiri'
 
   def index
-    url = "https://news.biglobe.ne.jp/list/018/258/%E5%B9%BC%E5%85%90.html"
+    url = 'https://news.biglobe.ne.jp/list/018/258/%E5%B9%BC%E5%85%90.html'
     html = URI.open(url).read
     doc = Nokogiri::HTML.parse(html, nil, 'utf-8')
 
@@ -21,7 +20,7 @@ class ArticlesController < ApplicationController
       content = item.css('.kw-sum').text
       date = item.css('.date').text
       sleep 0.5
-      Article.find_or_create_by(title: title, content: content, date: date)
+      Article.find_or_create_by(title:, content:, date:)
     end
 
     @articles = Article.all.order(date: :desc)
