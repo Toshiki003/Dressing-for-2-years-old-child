@@ -47,6 +47,10 @@ ja:
     index:
       title: 'みんなの投稿を見る'
       no_result: '投稿がありません。'
+      new_posts: '新着順'
+      most_liked: 'いいね順'
+      most_bookmarked: 'ブックマーク順'
+      comprehensive: '総合'
     new:
       title: '投稿する'
     show:
