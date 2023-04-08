@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :comments, dependent: :destroy
   has_one_attached :image
-
+  has_many :bookmarks, dependent: :destroy
   validates :title, presence: true, length: { maximum: 255 }
   validates :content, presence: true, length: { maximum: 65_535 }
   validates :embed_youtube, length: { maximum: 200 }
@@ -18,8 +18,11 @@ class Post < ApplicationRecord
   scope :new_arrivals, -> { Post.order(created_at: :desc).limit(3) }
 
   scope :most_liked, -> { joins(:likes).group(:id).order('COUNT(likes.id) DESC') }
-  scope :most_bookmarked, -> { joins(:bookmark_posts).group(:id).order('COUNT(bookmark_posts.id) DESC') }
-
+  scope :most_bookmarked, -> { select('posts.*, COUNT(bookmarks.id) AS bookmarks_count')
+    .joins(:bookmarks)
+    .group('posts.id')
+    .order('bookmarks_count DESC')
+}
 
 
   def split_id_from_youtube_url
