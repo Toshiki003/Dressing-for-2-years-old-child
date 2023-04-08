@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one_attached :image
   has_many :bookmarks, dependent: :destroy
+
   validates :title, presence: true, length: { maximum: 255 }
   validates :content, presence: true, length: { maximum: 65_535 }
   validates :embed_youtube, length: { maximum: 200 }
@@ -22,7 +23,15 @@ class Post < ApplicationRecord
     .joins(:bookmarks)
     .group('posts.id')
     .order('bookmarks_count DESC')
-}
+  }
+  scope :conprehensive, -> {
+    select('posts.*, (COUNT(likes.id) * 5 + COUNT(bookmarks.id) * 10 + COUNT(comments.id) * 3) AS total_points')
+    .joins('LEFT JOIN likes ON likes.post_id = posts.id')
+    .joins('LEFT JOIN bookmarks ON bookmarks.post_id = posts.id')
+    .joins('LEFT JOIN comments ON comments.post_id = posts.id')
+    .group('posts.id')
+    .order('total_points DESC')
+  }
 
 
   def split_id_from_youtube_url

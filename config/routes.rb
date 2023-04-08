@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get :search
       get :most_liked
       get :most_bookmarked
+      get :conprehensive
     end
   end
   resources :likes, only: %i[index create destroy]

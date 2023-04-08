@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy]
-  before_action :set_popular_tags, only: %i[index most_liked most_bookmarked]
+  before_action :set_popular_tags, only: %i[index most_liked most_bookmarked conprehensive]
 
   def index
     posts = if(tag_name = params[:tag_name])
@@ -66,6 +66,11 @@ class PostsController < ApplicationController
 
   def most_bookmarked
     @posts = Post.most_bookmarked.includes(:user).page(params[:page]).per(9)
+    @post = Post.new
+  end
+
+  def conprehensive
+    @posts = Post.conprehensive.includes(:user).page(params[:page]).per(9)
     @post = Post.new
   end
 
