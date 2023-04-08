@@ -18,7 +18,6 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
-
   enum avatar: {
     fox: 0,
     dog: 1,
@@ -36,7 +35,7 @@ class User < ApplicationRecord
     sanma: 12,
     whale: 13,
     flog: 15
-  } 
+  }
 
   enum role: {
     general: 0,
@@ -49,9 +48,9 @@ class User < ApplicationRecord
   end
 
   def liked_by?(post_id)
-    likes.where(post_id: post_id).exists?
+    likes.where(post_id:).exists?
   end
-    
+
   def bookmark(post)
     bookmark_posts << post
   end

@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create destroy], shallow: true
     collection do
       get :search
+      get :most_liked
+      get :most_bookmarked
+      get :conprehensive
     end
   end
   resources :likes, only: %i[index create destroy]
@@ -22,4 +25,5 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
 
+  resources :articles, only: %i[index]
 end

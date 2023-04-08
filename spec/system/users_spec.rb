@@ -6,7 +6,6 @@ RSpec.describe 'Users', type: :system do
     let(:existed_user) { create(:user) }
 
     context '正常系' do
-
       it 'ユーザーの新規作成ができる' do
         visit new_user_path
         fill_in 'ユーザー名', with: 'test_name'

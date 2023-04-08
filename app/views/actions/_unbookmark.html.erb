@@ -1,7 +1,9 @@
 <%= turbo_frame_tag dom_id(post, :bookmark_post) do %>
   <%= link_to bookmark_path(current_user.bookmarks.find_by(post_id: post.id)),
+              style:'text-decoration:none;',
               id: "js-bookmark-button-for-post-#{post.id}",
               data: { turbo_method: :delete } do %>
     <i class="fa-solid fa-bookmark fa-lg"></i>
+    <%= post.bookmarks.count %>
   <% end %>
 <% end %>

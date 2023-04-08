@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :comments, dependent: :destroy
   has_one_attached :image
+  has_many :bookmarks, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :content, presence: true, length: { maximum: 65_535 }
@@ -16,19 +17,34 @@ class Post < ApplicationRecord
   scope :content_contain, ->(word) { where('posts.content LIKE ?', "%#{word}%") }
   scope :with_category, ->(category_name) { joins(:category).where(categories: { name: category_name }) }
   scope :new_arrivals, -> { Post.order(created_at: :desc).limit(3) }
+  scope :most_liked, -> { joins(:likes).group(:id).order('COUNT(likes.id) DESC') }
+  scope :most_bookmarked, lambda {
+    select('posts.*, COUNT(bookmarks.id) AS bookmarks_count')
+      .joins(:bookmarks)
+      .group('posts.id')
+      .order('bookmarks_count DESC')
+  }
+  scope :conprehensive, lambda {
+    select('posts.*, (COUNT(likes.id) * 5 + COUNT(bookmarks.id) * 10 + COUNT(comments.id) * 3) AS total_points')
+      .joins('LEFT JOIN likes ON likes.post_id = posts.id')
+      .joins('LEFT JOIN bookmarks ON bookmarks.post_id = posts.id')
+      .joins('LEFT JOIN comments ON comments.post_id = posts.id')
+      .group('posts.id')
+      .order('total_points DESC')
+  }
 
   def split_id_from_youtube_url
     # YoutubeならIDのみ抽出
-    if self.embed_youtube?
-      if self.embed_youtube.include?('youtu.be')
-        embed_youtube.split('/').last
-      elsif self.embed_youtube.include?('youtube.com')
-        embed_youtube.split('=').last
-      end
+    return unless embed_youtube?
+
+    if embed_youtube.include?('youtu.be')
+      embed_youtube.split('/').last
+    elsif embed_youtube.include?('youtube.com')
+      embed_youtube.split('=').last
     end
   end
 
-  #タグ保存失敗時の例外処理
+  # タグ保存失敗時の例外処理
   def save
     ActiveRecord::Base.transaction do
       save!
@@ -40,12 +56,13 @@ class Post < ApplicationRecord
 
   # twitterシェアボタン用のハッシュタグメソッドを定義
   def hash_tags
-    return if self.tags.blank?
-    hash_tags = ""
-    self.tags.pluck(:name).each do |tag|
+    return if tags.blank?
+
+    hash_tags = ''
+    tags.pluck(:name).each do |tag|
       hash_tag = "%0A%23#{tag}"
       hash_tags << hash_tag
     end
-    return hash_tags
+    hash_tags
   end
 end

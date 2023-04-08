@@ -1,5 +1,4 @@
 class BookmarksController < ApplicationController
-
   def index
     @bookmark_posts = current_user.bookmark_posts.includes(:user).order(created_at: :desc).page(params[:page]).per(9)
   end
@@ -7,7 +6,6 @@ class BookmarksController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     current_user.bookmark(@post)
-    
   end
 
   def destroy
