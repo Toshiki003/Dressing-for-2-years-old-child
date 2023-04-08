@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create destroy], shallow: true
     collection do
       get :search
+      get :most_liked
     end
   end
   resources :likes, only: %i[index create destroy]

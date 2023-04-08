@@ -17,6 +17,9 @@ class Post < ApplicationRecord
   scope :with_category, ->(category_name) { joins(:category).where(categories: { name: category_name }) }
   scope :new_arrivals, -> { Post.order(created_at: :desc).limit(3) }
 
+  scope :most_liked, -> { joins(:likes).group(:id).order('COUNT(likes.id) DESC') }
+
+
   def split_id_from_youtube_url
     # YoutubeならIDのみ抽出
     if self.embed_youtube?

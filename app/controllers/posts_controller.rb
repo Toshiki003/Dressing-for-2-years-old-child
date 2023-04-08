@@ -59,6 +59,13 @@ class PostsController < ApplicationController
     @posts = @search_form.search.includes(:user).order(created_at: :desc)
   end
 
+  def most_liked
+    @posts = Post.most_liked.includes(:user).order(created_at: :desc).page(params[:page]).per(9)
+    # binding.irb
+    @popular_tags = Tag.popular_tags
+    @post = Post.new
+  end
+
   private
 
   def post_params
