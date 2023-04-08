@@ -9,21 +9,8 @@
     
 
       <div class="col-12 col-lg-8">
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Active</a>
-          </li>
-          <li class="nav-item">
-            <%# タブの箇所は後でindexページに合わせて変更する %>
-            <%= link_to 'トップページへ',root_path, class:'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'いいね順',most_liked_posts_path, class:'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
+        <%= render 'shared/nav_tabs' %>
+        
         <%= turbo_frame_tag "post-list" %>
           <% if @posts.present? %>
             <%= render @posts %>

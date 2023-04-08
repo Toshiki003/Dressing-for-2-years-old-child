@@ -18,6 +18,8 @@ class Post < ApplicationRecord
   scope :new_arrivals, -> { Post.order(created_at: :desc).limit(3) }
 
   scope :most_liked, -> { joins(:likes).group(:id).order('COUNT(likes.id) DESC') }
+  scope :most_bookmarked, -> { joins(:bookmark_posts).group(:id).order('COUNT(bookmark_posts.id) DESC') }
+
 
 
   def split_id_from_youtube_url

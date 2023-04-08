@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to (t 'defaults.nav_tabs.new_posts'),posts_path, class:'nav-link active' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to (t 'defaults.nav_tabs.most_liked'), most_liked_posts_path, class:'nav-link' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to (t 'defaults.nav_tabs.most_bookmarked'), most_bookmarked_posts_path, class:'nav-link' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to (t 'defaults.nav_tabs.comprehensive'),'#', class:'nav-link' %>
+  </li>
+</ul>

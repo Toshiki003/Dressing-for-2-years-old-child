@@ -60,8 +60,13 @@ class PostsController < ApplicationController
   end
 
   def most_liked
-    @posts = Post.most_liked.includes(:user).order(created_at: :desc).page(params[:page]).per(9)
-    # binding.irb
+    @posts = Post.most_liked.page(params[:page]).per(9)
+    @popular_tags = Tag.popular_tags
+    @post = Post.new
+  end
+
+  def most_bookmarked
+    @posts = Post.most_bookmarked.includes(:user).page(params[:page]).per(9)
     @popular_tags = Tag.popular_tags
     @post = Post.new
   end
