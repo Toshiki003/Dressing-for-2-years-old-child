@@ -1,5 +1,5 @@
 <!-- turbo_frameリクエスト時のURL更新 -->
-<div class="container py-5">
+<div class="container py-3">
   <!-- post一覧-->
   <div class="row">
     <div class="col-12 col-lg-8">
@@ -17,7 +17,7 @@
     <!-- サイドのフォームと人気のタグ-->
       <div class="col-12 col-lg-4">
         <div class="sticky-top">
-          <div class="post-form-card">
+          <div class="post-form-card pt-2 pb-2">
             <div class="card-body m-3">
               <!-- indexページからの送信時turboはfalseにする -->
               <div id="post-form">
@@ -25,8 +25,8 @@
               </div>
             </div>
           </div>
-          <div class="d-flex justify-content-center">
-            <%= paginate @posts, theme: 'bootstrap-5' %>
+          <div class="d-flex justify-content-center pt-4">
+            <%= paginate @posts, theme: 'bootstrap-5' if !@post.present?%>
           </div>
           <div class="card my-4">
             <div class="card-header bg-primary text-white">

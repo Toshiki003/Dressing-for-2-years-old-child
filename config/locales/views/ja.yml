@@ -27,6 +27,9 @@ ja:
       most_liked: 'いいね順'
       most_bookmarked: 'ブックマーク順'
       comprehensive: '総合'
+    tag:
+      tags: 'タグを選択'
+      tag_names: '新しいタグを作成'
       
   users:
     new:
@@ -52,7 +55,6 @@ ja:
     index:
       title: 'みんなの投稿を見る'
       no_result: '投稿がありません。'
-      
     new:
       title: '投稿する'
     show:
