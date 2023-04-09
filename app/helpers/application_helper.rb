@@ -9,6 +9,9 @@ module ApplicationHelper
       keywords: '2歳児,身支度,イヤイヤ期,投稿サービス',
       canonical: request.original_url,
       separator: '|',
+      icon: [
+        { href: image_url('favicon.png'), size: '32x32' }
+      ],
       og: {
         site_name: :site,
         title: :title,
