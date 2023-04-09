@@ -5,6 +5,7 @@ ja:
       post: '投稿'
       category: 'カテゴリ'
       comment: 'コメント'
+      tag: 'タグ'
       
     attributes: 
       user:
@@ -18,8 +19,9 @@ ja:
       post:
         title: 'タイトル'
         content: '内容'
-        embed_youtube: 'YouTube URL(任意)'
+        embed_youtube: 'YouTube動画埋め込み'
         created_at: '作成日時'
+        image: '画像'
       comment:
         body: 'コメント'
       category: 

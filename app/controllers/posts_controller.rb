@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy]
-  before_action :set_popular_tags, only: %i[index most_liked most_bookmarked conprehensive]
+  before_action :set_popular_tags, only: %i[index most_liked most_bookmarked conprehensive create]
 
   def index
     posts = if(tag_name = params[:tag_name])
@@ -77,7 +77,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :embed_youtube, :image, :category_id)
+    params.require(:post).permit(:title, :content, :embed_youtube, :image, :category_id, tag_ids: [])
   end
 
   def set_post

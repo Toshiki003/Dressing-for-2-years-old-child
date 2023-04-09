@@ -1,17 +1,18 @@
 <div class="container">
     <%= form_with model: post, local: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
+        <p><span style="color:red;">*</span>は必須項目です</p>
         <div class="form-group mt-3">
-            <%= f.label :category_id %>
+            <%= f.label :category_id, style: 'display:inline;' %><p style="display:inline; color:red;" >*</p>
             <%= f.select :category_id, Category.pluck(:name, :id), {include_blank: true}, {data: { controller: 'slim', slim_target: 'field' } } %>
         </div>
         <div class="form-group mt-3">
-            <%= f.label :title %>
+            <%= f.label :title, style: 'display:inline;' %><p style="display:inline; color:red;" >*</p>
             <%= f.text_field :title, class:'form-control'%>
         </div>
         <div class="form-group mt-3">
-            <%= f.label :content %>
-            <%= f.text_area :content, class: 'form-control', rows: 5 %>
+            <%= f.label :content, style: 'display:inline;' %><p style="display:inline; color:red;" >*</p>
+            <%= f.text_area :content, class: 'form-control', rows: 4 %>
         </div>
         <div class="form-group mt-3">
             <%= f.label :image %>
@@ -21,8 +22,12 @@
             <%= f.label :embed_youtube %>
             <%= f.text_field :embed_youtube, class: 'form-control' %>
         </div>
+        <div class="form-group mt-3">
+            <%= f.label :tags, 'タグを選択' %>
+            <%= f.select :tag_ids, Tag.all.pluck(:name, :id), {}, { multiple: true, data: { controller: 'slim', slim_target: 'field' } } %>
+        </div>
         <div class="mb-3 mt-3">
-            <%= f.label :tag_names, "タグ(任意) *複数タグを付ける場合はカンマ(,)で区切ってください" %>
+            <%= f.label :tag_names, "新しいタグを作成 *複数の場合はカンマ(,)で区切ってください" %>
             <%= f.text_field :tag_names, class: 'form-control', value: @tags %>
         </div>
         <div class="mb-3 mt-3">
