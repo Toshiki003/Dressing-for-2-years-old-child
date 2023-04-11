@@ -55,41 +55,110 @@ YouTubeの検索キーワードでも、「お風呂　子供　入らない」�
 - 例えば朝、時間がなくて歯磨きなどを無理やりしてしまうと、次からもっと嫌がってしまいます。嫌がらず毎日の習慣に組み込むことに親は大変苦心しています。**<span style="color: red; ">楽しく・機嫌よく毎日身支度ができることは、子どもにとっても親にとっても大切なことだと思います。</span>**
 - だからこそ、「他のお家では歯磨きとかどうしているのかを知りたいな」と思ったし、「動画と歌を中心に親子で笑顔で楽しめるサービスがあるといいな」と思い作成しようと考えました。
 
-## ■機能の紹介
+## ■サービスの紹介
 
-トップページ | 使い方
+トップページ(上) | トップページ(下)
 -|-
-![top_page](image.png) | ![top_page_low]()
+![image](https://user-images.githubusercontent.com/110599239/231168812-8d71dbff-99e6-4fe1-9e84-5e69557561ac.png) | ![image](https://user-images.githubusercontent.com/110599239/231166564-2c4c8e4d-d3a4-4254-9103-c93d836216ab.png)
 ユーザー登録ができます  | 新着の投稿が表示され、どんなサイトかわかります
-
-![how_to_use]() | ![index]()
+![image](https://user-images.githubusercontent.com/110599239/231167190-914c2c3e-cdce-4091-9e0a-34e02f890ff3.png)| ![image](https://user-images.githubusercontent.com/110599239/231167377-5e050c04-e924-4072-b1e9-2adfeb3b6e13.png)
 使い方の説明 | 投稿(Post)の新規作成、並べ替え、いいねとブックマークなどができます。
-
-
+![image](https://user-images.githubusercontent.com/110599239/231168108-12b1d2cf-b99d-448d-ac8a-c575d542f840.png) | ![image](https://user-images.githubusercontent.com/110599239/231167742-0dac47c9-111c-4f95-9815-6723f79b699a.png)
+詳細ページでコメントを残すことができます。 | 子育てに関するニュースが定期的に更新され見ることができます。
 
 
 <br>
-<br>
-<br>
 
-## ■実装予定の機能
+## ■実装機能
 
-- ユーザーログイン/ ログアウト機能(sorcery)
+- ユーザー登録機能
+    <details> <summary>プロフィール画像選択機能(親子で楽しく使えるように動物アイコンを選択)</summary>
+      ![image](https://user-images.githubusercontent.com/110599239/231173128-1b6ac691-4bc6-4ec7-8964-a6bd500a9c22.png) 
+    </details>
+    
+- ログイン/ ログアウト機能
     - ゲストログイン機能
     - パスワードリセット機能
-- 「うちの工夫」一覧、投稿、詳細、編集、削除機能　★メイン機能
+    - ユーザープロフィール編集機能
+- 「うちの工夫」一覧、投稿、詳細、編集、削除機能　★メイン機能 (turbo_streamによる非同期処理)
     - YouTube動画埋め込み機能
-- なるほど!機能（≒いいね機能）
-- ブックマーク機能
+    - 画像投稿機能(ActiveStorage)
+    - 複数タグづけ機能（ユーザー側で自由にタグ付けできる。Stimulusによるキーワード補完）
+    - カテゴリ機能（アプリ側で設定。プルダウンでユーザーが選択。Stimulusによるサジェスト）
+- 検索機能
+    - カテゴリ、タグ名クリックによる絞り込み検索
+    - 人気のタグ表示による絞り込み検索
+    - タイトル・本文フリーワード検索
+- 投稿の並べ替え(scope定義)
+    - 新着順
+    - いいね順
+    - ブックマーク順
+    - 総合順(いいね5ポイント、ブックマーク10ポイント、コメント3ポイントで計算)
+    
+- いいね機能(turbo_streamによる非同期処理)
+- ブックマーク機能(turbo_streamによる非同期処理)
 - コメント機能
-- 複数タグづけ機能（ユーザー側で自由にタグ付けできる）#3歳 , #男の子, #3人姉妹 など
-- ※カテゴリ機能（アプリ側で設定。プルダウンでユーザーが選択）
 - 新着の投稿表示機能(topページに配置)
-- ユーザープロフィール編集機能
+- 子育てニュース機能(複数サイトからスクレイピング処理を定期実行)
+    (robots.txt, 利用規約の確認済みです)
+### ■その他機能
+- 利用規約・プライバシーポリシー
+- twitter共有機能
+- ページネーション(turbo_streamによる非同期処理)
+- いいね一覧機能
+- ブックマーク一覧機能
+
+## ■今後の追加実装予定
 - 管理者機能（ユーザー、投稿のCRUD)
+    - gem 　　による権限管理
+- RSpec テストコードの追加(現在86件)
+    - カバレッジ % 
 
 
+<br>
 
+## ■使用技術
+**バックエンド**
+<br>
+- Ruby 3.1.3
+- Ruby on Rails 7.0.4
+
+
+**主要ライブラリ**
+<br>
+- importmap-rails
+- turbo-rails
+- stimulus-rails
+- Sorcery
+- Seed-fu
+- config
+- enum_help
+- rails-i18n
+- meta-tags(SEO)
+- nokogiri
+- RSpec(テスト)
+- Rubocop(リントチェック)
+- SinpleCov(カバレッジ測定)
+- kaminari(ページネーション)
+- rinku(auto-link)
+    
+**フロントエンド**
+<br>
+- HTML/SCSS/JavaScript
+- CSSフレームワーク
+    - Bootstrap5
+
+**インフラ**
+<br>
+- Heroku
+- PostgresQL
+
+**その他**
+<br>
+- Heroku scheduler (rakeタスク定期実行)
+- Google アナリティクス(GA4)
+
+   
 
 ER図
 
