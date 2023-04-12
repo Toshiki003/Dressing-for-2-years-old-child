@@ -23,9 +23,19 @@ class PostsController < ApplicationController
     @post.tags = Tag.str2tags(params.dig(:post, :tag_names)) # タグの文字列をタグの配列に変換
     if @post.save
       flash.now[:success] = t('defaults.message.created', item: Post.model_name.human)
+      if request.referer&.include?(new_post_path)
+        redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
+      end
     else
-      flash.now[:danger] = t('defaults.message.not_created', item: Post.model_name.human)
-      render :index, status: :unprocessable_entity
+      # request.refererを使用して、リクエストがどのURLから来たかを判断する
+      # binding.irb
+      if request.referer&.include?(new_post_path)
+        flash.now[:danger] = t('defaults.message.not_created', item: Post.model_name.human)
+        render :new, status: :unprocessable_entity
+      else
+        flash.now[:danger] = t('defaults.message.not_created', item: Post.model_name.human)
+        render :index, status: :unprocessable_entity
+      end
     end
   end
 
@@ -77,7 +87,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :embed_youtube, :image, :category_id, tag_ids: [])
+    params.require(:post).permit(:title, :content, :embed_youtube, :image, :category_id, tag_names: [])
   end
 
   def set_post

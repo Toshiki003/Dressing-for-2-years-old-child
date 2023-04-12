@@ -23,4 +23,22 @@ body {
   height: 100%;
 }
 
+/* デフォルトではモバイルからのみ表示 */
+.mobile-only {
+  display: none;
+}
+
+/* 画面幅が992px以上の場合は非表示 */
+@media (min-width: 992px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+/* 画面幅が992px未満の場合は表示 */
+@media (max-width: 991px) {
+  .mobile-only {
+    display: inline-block !important;
+  }
+}
 
