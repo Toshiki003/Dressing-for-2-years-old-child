@@ -42,3 +42,5 @@ config/settings/*.local.yml
 config/environments/*.local.yml
 
 /spec/examples.txtcoverage
+/.vscode
+/log
