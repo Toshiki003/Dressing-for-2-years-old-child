@@ -66,11 +66,13 @@
             <%= render post.tags %>
           </div>
         </li>
-        <li class="list-inline-item float-end">
-          <%= link_to "https://twitter.com/intent/tweet?&text=2歳児の【#{post.category.name}】を楽しくする工夫をシェアします！%0Aタイトルは「#{post.title}」！%0A#{post.hash_tags}%0AD2C- Dressing for 2 years children -%0A&url=https://d2c-child.com", target: '_blank' do %>
-            <i class="fab fa-twitter fa-lg"></i>
-          <% end %>
-        </li>
+        <% if current_user.own?(post) %>
+          <li class="list-inline-item float-end">
+            <%= link_to "https://twitter.com/intent/tweet?&text=2歳児の【#{post.category.name}】を楽しくする工夫をシェアします！%0Aタイトルは「#{post.title}」！%0A#{post.hash_tags}%0AD2C- Dressing for 2 years children -%0A&url=https://d2c-child.com", target: '_blank' do %>
+              <i class="fab fa-twitter fa-lg"></i>
+            <% end %>
+          </li>
+        <% end %>
     </div>
   </div>
 <% end %>
