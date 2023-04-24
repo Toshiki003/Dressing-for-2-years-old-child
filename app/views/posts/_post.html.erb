@@ -3,7 +3,6 @@
     <div class="card-body">
       <h5 class="card-header" style="background-color: #ffffc2;">
         <%= link_to post.title, post_path(post) %>
-        <span class="card-date"><%= l post.created_at, format: :short %></span>
       </h5>            
       <p class="card-text"><%= raw Rinku.auto_link(simple_format(post.content.truncate(100)), :urls, 'target="_blank" rel="noopener noreferrer"') %></p>          
       <ul class="list-inline">
