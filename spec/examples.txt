@@ -3,6 +3,7 @@ example_id                                                | status  | run_time  
 ./spec/helpers/static_pages_helper_spec.rb[1:1]           | pending | 0.00001 seconds |
 ./spec/mailers/user_mailer_spec.rb[1:1:1]                 | pending | 0 seconds       |
 ./spec/mailers/user_mailer_spec.rb[1:1:2]                 | pending | 0 seconds       |
+./spec/models/article_spec.rb[1:1]                        | unknown |                 |
 ./spec/models/bookmark_spec.rb[1:1]                       | pending | 0 seconds       |
 ./spec/models/category_spec.rb[1:1]                       | pending | 0 seconds       |
 ./spec/models/comment_spec.rb[1:1]                        | pending | 0 seconds       |
@@ -29,6 +30,7 @@ example_id                                                | status  | run_time  
 ./spec/models/user_spec.rb[1:1:9]                         | passed  | 0.00415 seconds |
 ./spec/models/user_spec.rb[1:1:10]                        | passed  | 0.00325 seconds |
 ./spec/models/user_spec.rb[1:1:11]                        | passed  | 0.00355 seconds |
+./spec/requests/articles_spec.rb[1:1:1]                   | unknown |                 |
 ./spec/requests/bookmark_spec.rb[1:1:1]                   | pending | 0.00001 seconds |
 ./spec/requests/comments_spec.rb[1:1:1]                   | pending | 0 seconds       |
 ./spec/requests/likes_spec.rb[1:1:1]                      | pending | 0 seconds       |
@@ -64,7 +66,7 @@ example_id                                                | status  | run_time  
 ./spec/system/posts_spec.rb[1:2:2:6]                      | passed  | 1.27 seconds    |
 ./spec/system/posts_spec.rb[1:2:3:1]                      | passed  | 1.58 seconds    |
 ./spec/system/posts_spec.rb[1:2:4:1:1]                    | failed  | 3.9 seconds     |
-./spec/system/posts_spec.rb[1:2:4:2:1]                    | passed  | 3.46 seconds    |
+./spec/system/posts_spec.rb[1:2:4:2:1]                    | failed  | 6 seconds       |
 ./spec/system/user_sessions_spec.rb[1:1:1:1]              | passed  | 0.42884 seconds |
 ./spec/system/user_sessions_spec.rb[1:1:1:2]              | passed  | 1.01 seconds    |
 ./spec/system/user_sessions_spec.rb[1:1:2:1]              | passed  | 0.3567 seconds  |
