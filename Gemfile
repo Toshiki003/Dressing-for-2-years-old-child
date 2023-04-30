@@ -97,3 +97,6 @@ gem 'meta-tags'
 
 # スクレイピング処理
 gem 'nokogiri'
+
+# admin
+gem 'rails_admin'
