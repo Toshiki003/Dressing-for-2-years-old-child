@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
   def index
-    @articles = Article.all.order(date: :desc)
+    @articles = Article.last(10)
   end
 end
