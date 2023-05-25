@@ -77,7 +77,6 @@ group :development do
   gem 'letter_opener_web', '~> 1.0'
 end
 
-gem 'cssbundling-rails', '~> 1.1'
 
 gem 'dockerfile-rails', '>= 1.2', group: :development
 
@@ -97,3 +96,11 @@ gem 'meta-tags'
 
 # スクレイピング処理
 gem 'nokogiri'
+
+# admin
+gem 'rails_admin', '~> 3.1', git: 'https://github.com/sferik/rails_admin.git'
+gem "cssbundling-rails"
+
+gem 'sassc-rails'
+
+gem 'cancancan'
