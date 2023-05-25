@@ -102,3 +102,5 @@ gem 'rails_admin', '~> 3.1', git: 'https://github.com/sferik/rails_admin.git'
 gem "cssbundling-rails"
 
 gem 'sassc-rails'
+
+gem 'cancancan'
