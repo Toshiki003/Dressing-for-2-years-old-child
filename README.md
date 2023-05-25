@@ -4,7 +4,7 @@
 
 ![ogp](https://user-images.githubusercontent.com/110599239/230909759-719fc990-3c5c-4819-b25c-1025780e6abc.png)
 
-# [D2C](https://d2c-child.herokuapp.com/)
+# [D2C](https://d2c-child.com/)
 
 ## ■サービス概要
 
